@@ -7,3 +7,4 @@ public class Periode {
     private ArrayList<Tour> tours;
     //prévoir hashmap joueur, élements . Exemple : 1 pt de nourriture sur les num pair
 }
+//test
