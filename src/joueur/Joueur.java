@@ -26,8 +26,7 @@ public class Joueur {
         return this.cartes;
     }
 
-    public int nombreDePlacePaturage() {
-        
-        return 0;
+    public PlateauJoueur getPlateauJoueur(){
+        return this.plateau;
     }
 }

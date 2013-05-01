@@ -3,24 +3,21 @@ package joueur;
 import java.util.ArrayList;
 
 public  class PlateauJoueur {
-    private Case[][] cases;
+    private ArrayList<Case> liste_case;
     private Boolean[][] clotures_lignes;
     private Boolean[][] clotures_colonnes;
     
     
     
     public PlateauJoueur(){
-        this.cases = new Case[5][3];
-        int numero_case = 1;
-        for(int i = 0; i < this.cases.length; i++){
-            for(int j = 0; j < this.cases[i].length; j++){
-                this.cases[i][j] = new Case(numero_case);
-                numero_case++;
-            }
+        this.liste_case = new ArrayList<Case>();
+        for(int i = 1; i < 16; i++){
+            Case c = new Case(i);
+            this.liste_case.add(c);
         }
-        this.cases[0][1] = new CaseHabitation(true,6);
-        this.cases[0][2] = new CaseHabitation(true,11);
-                
+        this.liste_case.set(6, new CaseHabitation(true,6));
+        this.liste_case.set(11, new CaseHabitation(true,11));
+        
         this.clotures_lignes = new Boolean[5][4];
         for(int i = 0; i < this.clotures_lignes.length; i++)
             for(int j = 0; j < this.clotures_lignes[i].length; j++)
@@ -30,6 +27,23 @@ public  class PlateauJoueur {
         for(int i = 0; i < this.clotures_colonnes.length; i++)
             for(int j = 0; j < this.clotures_colonnes[i].length; j++)
                 this.clotures_colonnes[i][j] = false;
+    }
+    
+    public ArrayList<Case> casesLibre(){
+        ArrayList<Case> liste_place_libre = new ArrayList<Case>();
+        for(Case case_actuelle : this.liste_case){
+            if(case_actuelle instanceof Case){
+                liste_place_libre.add(case_actuelle);
+            }
+        }
+        return liste_place_libre;
+    }
+    
+    public boolean possedeAuMoinsUnChamps(){
+        for(Case case_actuelle : this.liste_case)
+            if(case_actuelle instanceof CaseChamps)
+                return true;
+        return false;
     }
     
     /*
@@ -90,14 +104,13 @@ public  class PlateauJoueur {
     
     public int nombredePaturage(){
         ArrayList<Case> liste_marquee = new ArrayList<Case>();
-        for(Case[] cases : this.cases){
-            for(Case cases_actuelle : cases){
+        for(Case cases_actuelle : this.liste_case){
                 if(!(cases_actuelle instanceof CasePaturage)){
                     liste_marquee.add(cases_actuelle);
                 }else{
                     
                 }
-            }
+            
         }
         return 0;
     }
