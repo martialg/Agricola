@@ -4,7 +4,7 @@ public class Ressource {
     private int nb_membres_famille;
     private int nb_clotures;
     private int nb_etables;
-    private int nourriture;    
+    private int nourriture;   
     
     //Matières 1ères
     private Bois bois;
@@ -17,7 +17,43 @@ public class Ressource {
     
     private Mouton mouton;
     private Sanglier sanglier;
-    private Boeuf boeuf;
+    private Boeuf boeuf; 
+
+    public int getNourriture() {
+        return nourriture;
+    }
+
+    public Bois getBois() {
+        return bois;
+    }
+
+    public Argile getArgile() {
+        return argile;
+    }
+
+    public Pierre getPierre() {
+        return pierre;
+    }
+
+    public Roseau getRoseau() {
+        return roseau;
+    }
+
+    public Legume getLegume() {
+        return legume;
+    }
+
+    public Cereale getCereale() {
+        return cereale;
+    }
+    
+    public Mouton getMouton() {
+        return mouton;
+    }
+
+    public Boeuf getBoeuf() {
+        return boeuf;
+    }
     
 
     public Sanglier getSanglier(){
@@ -44,5 +80,8 @@ public class Ressource {
         this.boeuf = new Boeuf();
     }
     
+    public void ajouterNourriture(int quantite){
+        this.nourriture += quantite;
+    }
 
 }
