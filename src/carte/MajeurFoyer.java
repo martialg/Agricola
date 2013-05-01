@@ -1,20 +1,18 @@
 package carte;
 
-import joueur.Joueur;
 import ressources.Argile;
 import ressources.MatierePremiere;
-import ressources.Ressource;
 
 public class MajeurFoyer extends AmenagementMajeur{
     
     public MajeurFoyer(){
         super();
         this.symbole = Symbole.BOULANGERIE_CUISSON;
-        this.points = 2;
+        this.points = 1;
         this.ressources_necessaires.add(new Argile(2));
     }
     
-    public boolean transformer(String type, int nourriture){
+    private boolean transformer(String type, int nourriture){
         MatierePremiere mp = null;
         switch(type){
             case "legume":
