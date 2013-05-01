@@ -6,7 +6,8 @@ public class CasePaturage extends Case{
     private boolean etable;
     private Animal animal;
     
-    public CasePaturage(){
+    public CasePaturage(int num){
+        super(num);
         this.etable = false;
         this.animal = null;
     }
@@ -14,5 +15,7 @@ public class CasePaturage extends Case{
     public void ajouterEtable(){
         this.etable = true;
     }
+    
+    
     
 }

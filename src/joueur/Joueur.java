@@ -27,6 +27,7 @@ public class Joueur {
     }
 
     public int nombreDePlacePaturage() {
+        
         return 0;
     }
 }
