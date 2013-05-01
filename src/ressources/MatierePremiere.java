@@ -3,6 +3,10 @@ package ressources;
 public class MatierePremiere {
     protected int quantite;
     
+    public MatierePremiere(){
+        this.quantite = 0;
+    }
+    
     public MatierePremiere(int quantite){
         this.quantite = quantite;
     }
