@@ -1,5 +1,8 @@
 package plateau.action;
 
-public class CaseAction {
+import joueur.Joueur;
+
+public abstract class CaseAction {
     
+    public abstract boolean action(Joueur joueur);
 }

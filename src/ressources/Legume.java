@@ -10,4 +10,6 @@ public class Legume extends Semaille{
         super(quantite);
     }
     
+    
+    
 }
