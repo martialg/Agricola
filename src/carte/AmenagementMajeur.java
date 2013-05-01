@@ -15,7 +15,11 @@ public class AmenagementMajeur {
     protected ArrayList<MatierePremiere> ressources_necessaires;
     protected Joueur joueur;
     
-    public boolean attribuerAUnJoueur(Joueur joueur){
+    public boolean attribuer(Joueur joueur){
+        return this.attribuerAUnJoueur(joueur);
+    }
+    
+    protected boolean attribuerAUnJoueur(Joueur joueur){
         if(this.ressources_necessaires.isEmpty()){
             return true;
         }else{
