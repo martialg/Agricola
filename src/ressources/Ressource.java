@@ -19,6 +19,12 @@ public class Ressource {
     private Sanglier sanglier;
     private Boeuf boeuf;
     
+
+    public Sanglier getSanglier(){
+        return sanglier;
+    }
+       
+
     public Ressource(){
         this.nb_membres_famille = 3; //3 car 2 utilisés à l'initialisation
         this.nb_clotures = 15;
@@ -38,7 +44,5 @@ public class Ressource {
         this.boeuf = new Boeuf();
     }
     
-    
-    
-    
+
 }

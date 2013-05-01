@@ -24,4 +24,6 @@ public  class PlateauJoueur {
             for(int j = 0; j < this.clotures_colonnes[i].length; j++)
                 this.clotures_colonnes[i][j] = false;
     }
+    
+    
 }

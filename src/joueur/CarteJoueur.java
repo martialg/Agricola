@@ -9,4 +9,8 @@ public class CarteJoueur {
     public CarteJoueur(){
         this.amenagements_majeurs_joues = new ArrayList<AmenagementMajeur>();
     }
+    
+    public ArrayList<AmenagementMajeur> getAmenagement(){
+        return this.amenagements_majeurs_joues;
+    }
 }
