@@ -18,8 +18,8 @@ public  class PlateauJoueur {
                 numero_case++;
             }
         }
-        this.cases[0][1] = new CaseHabitation(true);
-        this.cases[0][2] = new CaseHabitation(true);
+        this.cases[0][1] = new CaseHabitation(true,6);
+        this.cases[0][2] = new CaseHabitation(true,11);
                 
         this.clotures_lignes = new Boolean[5][4];
         for(int i = 0; i < this.clotures_lignes.length; i++)
