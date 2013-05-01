@@ -14,4 +14,13 @@ public class MatierePremiere {
     public void ajouter(int quantite){
         this.quantite += quantite;
     }
+    
+    public int getQuantite(){
+        return this.quantite;
+    }
+    
+    public void setQuantite(int nb){
+        this.quantite = nb;
+    }
+
 }

@@ -20,7 +20,8 @@ public class Ressource {
     private Sanglier sanglier;
     private Boeuf boeuf;
     
-    
-    
-    
+    public Sanglier getSanglier(){
+        return sanglier;
+    }
+       
 }

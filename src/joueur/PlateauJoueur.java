@@ -18,4 +18,6 @@ public  class PlateauJoueur {
             for(int j = 0; j < clotures_colonnes[i].length; j++)
                 clotures_colonnes[i][j] = false;
     }
+    
+    
 }

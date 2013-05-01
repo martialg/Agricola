@@ -9,5 +9,16 @@ public class Joueur {
     private Ressource ressources;
     private CarteJoueur cartes;
     
-     
+    public Ressource getRessources(){
+        return this.ressources;
+    }
+
+    public CarteJoueur getCartesJoueur(){
+        return this.cartes;
+    }
+
+    public int nombreDePlacePaturage() {
+        return 0;
+    }
+    
 }
