@@ -3,16 +3,16 @@ package carte;
 import ressources.Argile;
 import ressources.MatierePremiere;
 
-public class MajeurFoyer extends AmenagementMajeur{
+public class MajeurFoyer3 extends AmenagementMajeur{
     
-    public MajeurFoyer(){
+    public MajeurFoyer3(){
         super();
         this.symbole = Symbole.BOULANGERIE_CUISSON;
         this.points = 1;
-        this.ressources_necessaires.add(new Argile(2));
+        this.ressources_necessaires.add(new Argile(3));
     }
     
-    private boolean transformer(String type, int nourriture){
+    public boolean transformer(String type, int nourriture){
         MatierePremiere mp = null;
         switch(type){
             case "legume":
@@ -33,7 +33,7 @@ public class MajeurFoyer extends AmenagementMajeur{
         }
         if(mp.getQuantite() > 1){
             mp.consommer(1);
-            joueur.getRessources().ajouterNourriture(nourriture);
+            this.joueur.getRessources().ajouterNourriture(nourriture);
             return true;
         }else{
             return false;

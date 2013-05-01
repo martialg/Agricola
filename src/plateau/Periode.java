@@ -18,4 +18,8 @@ public class Periode {
             tours.add(new Tour(i+1, liste_melangee.get(i)));
         }
     }
+    
+    public ArrayList<Tour> getTours(){
+        return this.tours;
+    }
 }

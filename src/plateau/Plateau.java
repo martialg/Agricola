@@ -17,6 +17,9 @@ public class Plateau {
         //add période 5 : 2 tours 
         //add période 6 : 1 tours
         
-        
+    }
+    
+    public ArrayList<Periode> getPeriodes(){
+        return this.periodes;
     }
 }
