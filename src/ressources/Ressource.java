@@ -60,17 +60,7 @@ public class Ressource {
         return this.sanglier;
     }
        
-    public Legume getLegume(){
-        return this.legume;
-    }
     
-    public Cereale getCereale(){
-        return this.cereale;
-    }
-    
-    public Pierre getPierre(){
-        return this.pierre;
-    }
 
     public Ressource(){
         this.nb_membres_famille = 3; //3 car 2 utilisés à l'initialisation
