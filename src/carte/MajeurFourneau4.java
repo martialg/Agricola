@@ -10,15 +10,8 @@ public class MajeurFourneau4 extends AmenagementMajeurRemplacant{
         this.symbole = Symbole.BOULANGERIE_CUISSON;
         this.points = 1;
         this.ressources_necessaires.add(new Argile(4));
-        this.defausse = false;
     }
     
-    public MajeurFourneau4(){
-        super();
-        this.symbole = Symbole.BOULANGERIE_CUISSON;
-        this.points = 1;
-        this.defausse = true;
-    }
     
     public boolean transformer(String type, int nourriture){
         MatierePremiere mp = null;
