@@ -1,5 +1,6 @@
 package joueur;
 
+import java.util.ArrayList;
 import ressources.Ressource;
 
 public class Joueur {
@@ -22,11 +23,28 @@ public class Joueur {
         return this.ressources;
     }
 
-    public CarteJoueur getCartesJoueur(){
-        return this.cartes;
-    }
-
     public PlateauJoueur getPlateauJoueur(){
         return this.plateau;
+    }
+    
+    public CarteJoueur getCartes(){
+        return this.cartes;
+    }
+    
+    public boolean possedeChampsLibre(){
+        ArrayList<Case> liste = new ArrayList<Case>(this.plateau.getListeCase());
+        boolean libre = false;
+        int i = 0;
+        Case temp;
+        while(i < liste.size() && !libre){
+            temp = liste.get(i);
+            if(temp instanceof CaseChamps){
+                CaseChamps champ = (CaseChamps)temp;
+                if(champ.champsVide())
+                    libre = true;
+            }
+            i++;
+        }
+        return libre;
     }
 }

@@ -9,4 +9,15 @@ public class CaseChamps extends Case{
         super(num);
         this.semaille = null;
     }
+    
+    public boolean champsVide(){
+        if(this.semaille == null)
+            return true;
+        else
+            return false;
+    }
+    
+    public void semer(Semaille semaille){
+        this.semaille = semaille;
+    }
 }

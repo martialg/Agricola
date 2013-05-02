@@ -8,6 +8,7 @@ import ressources.MatierePremiere;
 import ressources.Pierre;
 import ressources.Ressource;
 import ressources.Roseau;
+import agricola.Agricola;
 
 public class AmenagementMajeur {
     protected Symbole symbole;
@@ -19,7 +20,46 @@ public class AmenagementMajeur {
         return this.attribuerAUnJoueur(joueur);
     }
     
+    /**
+     * Méthode qui attribue un amenagement au joueur
+     * suppression dans l'arraylist de plateua
+     * ajout dans l'arraylist de joueur
+     * attribution de joueur a la carte
+     * consomme les prerequis
+     * @param joueur
+     * @return 
+     */
     protected boolean attribuerAUnJoueur(Joueur joueur){
+        if(this.ressources_necessaires.isEmpty()){
+            this.joueur = joueur;
+            this.joueur.getCartes().addAmenagementsMajeursJoues(this);
+            Agricola.getPlateau().getAmenagements().remove(this);
+            return true;
+        }else{
+            Ressource ressources_joueur = joueur.getRessources();
+            if(this.attributionPossible(joueur)){
+                for(MatierePremiere mp : this.ressources_necessaires){
+                    if(mp instanceof Argile){
+                        ressources_joueur.getArgile().consommer(mp.getQuantite());
+                    }else if(mp instanceof Pierre){
+                        ressources_joueur.getPierre().consommer(mp.getQuantite());
+                    }else if(mp instanceof Bois){
+                        ressources_joueur.getBois().consommer(mp.getQuantite());
+                    }else if(mp instanceof Roseau){
+                        ressources_joueur.getRoseau().consommer(mp.getQuantite());
+                    }
+                }
+                this.joueur = joueur;
+                this.joueur.getCartes().addAmenagementsMajeursJoues(this);
+                Agricola.getPlateau().getAmenagements().remove(this);
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
+    
+    public boolean attributionPossible(Joueur joueur){
         if(this.ressources_necessaires.isEmpty()){
             return true;
         }else{
@@ -40,23 +80,7 @@ public class AmenagementMajeur {
                         possible = false;
                 }
             }
-            if(possible){
-                for(MatierePremiere mp : this.ressources_necessaires){
-                    if(mp instanceof Argile){
-                        ressources_joueur.getArgile().consommer(mp.getQuantite());
-                    }else if(mp instanceof Pierre){
-                        ressources_joueur.getPierre().consommer(mp.getQuantite());
-                    }else if(mp instanceof Bois){
-                        ressources_joueur.getBois().consommer(mp.getQuantite());
-                    }else if(mp instanceof Roseau){
-                        ressources_joueur.getRoseau().consommer(mp.getQuantite());
-                    }
-                }
-                this.joueur = joueur;
-                return true;
-            }else{
-                return false;
-            }
+            return possible;
         }
     }
     
