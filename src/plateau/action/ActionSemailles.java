@@ -1,9 +1,11 @@
 package plateau.action;
 
+import carte.AmenagementMajeur;
 import joueur.CaseChamps;
 import joueur.Joueur;
 import ressources.Cereale;
 import ressources.Legume;
+import carte.Symbole;
 
 public class ActionSemailles extends CaseAction{
     public ActionSemailles(){
@@ -28,6 +30,16 @@ public class ActionSemailles extends CaseAction{
             joueur.getRessources().getCereale().consommer(1);
         }
         this.joueur_sur_case = joueur;
+    }
+    
+    public boolean peutCuirPäin(Joueur joueur){
+        if(joueur.getRessources().getCereale().getQuantite() == 0)
+            return false;
+        else
+            for(AmenagementMajeur carte : joueur.getCartes().getAmenagement())
+                if(carte.getSymbole() == Symbole.BOULANGERIE_CUISSON || carte.getSymbole() == Symbole.CUISSON)
+                    return true;
+        return false;
     }
             
             
