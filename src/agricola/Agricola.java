@@ -37,6 +37,10 @@ public class Agricola {
             }
             i++;
         }
+    } 
+    
+    public void setPremierJoueur(Joueur nouveau_premier_joueur){
+        this.premier_joueur = nouveau_premier_joueur;
     }
     
     
