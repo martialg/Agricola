@@ -4,7 +4,6 @@ import joueur.Joueur;
 
 public class Action1Champ extends CaseAction{
 
-    @Override
     public boolean action(Joueur joueur) {
         if(joueur.getPlateauJoueur().casesLibre().isEmpty()){
             return false;

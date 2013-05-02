@@ -13,4 +13,8 @@ public class CarteJoueur {
     public ArrayList<AmenagementMajeur> getAmenagement(){
         return this.amenagements_majeurs_joues;
     }
+    
+    public void addAmenagementsMajeursJoues(AmenagementMajeur amenagement){
+        this.amenagements_majeurs_joues.add(amenagement);
+    }
 }

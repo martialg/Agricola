@@ -4,7 +4,6 @@ import joueur.Joueur;
 
 public class ActionJournalier extends CaseAction{
 
-    @Override
     public boolean action(Joueur joueur) {
         joueur.getRessources().ajouterNourriture(1);
         String choix = null;
@@ -22,6 +21,7 @@ public class ActionJournalier extends CaseAction{
                 joueur.getRessources().getPierre().ajouter(1);
                 break;
         }
+        this.joueur_sur_case = joueur;
         return true;
     }
     
