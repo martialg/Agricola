@@ -20,6 +20,7 @@ public class ActionJournalier extends CaseActionChoix{
                 joueur.getRessources().getPierre().ajouter(1);
                 break;
         }
+        this.joueur_sur_case = joueur;
         return true;
     }
     

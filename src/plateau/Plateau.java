@@ -22,4 +22,8 @@ public class Plateau {
     public ArrayList<Periode> getPeriodes(){
         return this.periodes;
     }
+    
+    public ArrayList<AmenagementMajeur> getAmenagements(){
+        return this.amenagements;
+    }
 }

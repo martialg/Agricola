@@ -2,9 +2,14 @@ package plateau.action;
 
 public abstract class RessourceCumulable extends CaseAction{
     protected int quantite_cumulee;
-    private int multiplicateur;
+    protected int multiplicateur;
     
-    public void finTour(){
+    public RessourceCumulable(){
+        super();
+        this.quantite_cumulee = 0;
+    }
+    
+    public void debutTour(){
         quantite_cumulee += multiplicateur;
     }
     

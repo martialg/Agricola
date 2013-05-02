@@ -29,6 +29,10 @@ public  class PlateauJoueur {
                 this.clotures_colonnes[i][j] = false;
     }
     
+    public ArrayList<Case> getListeCase(){
+        return this.liste_case;
+    }
+    
     public ArrayList<Case> casesLibre(){
         ArrayList<Case> liste_place_libre = new ArrayList<Case>();
         for(Case case_actuelle : this.liste_case){

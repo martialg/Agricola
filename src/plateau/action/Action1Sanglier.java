@@ -10,7 +10,6 @@ public class Action1Sanglier extends RessourceCumulable {
         
     }
 
-    @Override
     public boolean action(Joueur joueur) {
         
         //si le joueur à de quoi cuire

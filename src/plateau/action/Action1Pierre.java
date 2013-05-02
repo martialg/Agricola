@@ -4,14 +4,14 @@ import joueur.Joueur;
 
 public class Action1Pierre extends RessourceCumulable{
 
-    @Override
+    public Action1Pierre(){
+        this.multiplicateur = 1;
+    }
+    
     public boolean action(Joueur joueur) {
-
         joueur.getRessources().getPierre().ajouter(quantite_cumulee);
-        
-        //recuperation des ressources
         this.prendreLesRessource();
-        
+        this.joueur_sur_case = joueur;
         return true;
     }
     
