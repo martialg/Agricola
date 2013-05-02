@@ -7,13 +7,13 @@ import ressources.MatierePremiere;
 import ressources.Pierre;
 import ressources.Ressource;
 import ressources.Roseau;
+import agricola.Agricola;
 
 public class AmenagementMajeurRemplacant extends AmenagementMajeur{
     protected boolean defausse;
     
     public AmenagementMajeurRemplacant(){
         super();
-        this.defausse = false;
     }
     
     public void setDefausse(){
@@ -23,6 +23,10 @@ public class AmenagementMajeurRemplacant extends AmenagementMajeur{
     @Override
     protected boolean attribuerAUnJoueur(Joueur joueur){
         if((this.defausse==true)&&(this.ressources_necessaires.isEmpty())){
+            Agricola.getPlateau().getAmenagements().remove(this);
+            Agricola.getPlateau().getAmenagements().add(this);
+            joueur.getCartesJoueur().getAmenagement().add(this);
+            joueur.getCartesJoueur().getAmenagement().remove(this);
             return true;
         }else{
             Ressource ressources_joueur = joueur.getRessources();

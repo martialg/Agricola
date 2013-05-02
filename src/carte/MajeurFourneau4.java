@@ -9,7 +9,15 @@ public class MajeurFourneau4 extends AmenagementMajeurRemplacant{
         super();
         this.symbole = Symbole.BOULANGERIE_CUISSON;
         this.points = 1;
-        this.ressources_necessaires.add(new Argile(3));
+        this.ressources_necessaires.add(new Argile(4));
+        this.defausse = false;
+    }
+    
+    public MajeurFourneau4(){
+        super();
+        this.symbole = Symbole.BOULANGERIE_CUISSON;
+        this.points = 1;
+        this.defausse = true;
     }
     
     public boolean transformer(String type, int nourriture){
@@ -42,7 +50,7 @@ public class MajeurFourneau4 extends AmenagementMajeurRemplacant{
     }
     
     public boolean transformerLegume(){
-        return this.transformer("legume", 2);
+        return this.transformer("legume", 3);
     }
     
     public boolean transformerMouton(){
@@ -50,14 +58,14 @@ public class MajeurFourneau4 extends AmenagementMajeurRemplacant{
     }
     
     public boolean transformerSanglier(){
-        return this.transformer("sanglier", 2);
+        return this.transformer("sanglier", 3);
     }
     
     public boolean transformerBoeuf(){
-        return this.transformer("boueuf", 3);
+        return this.transformer("boeuf", 4);
     }
     
     public boolean cuirPain(){
-        return this.transformer("cereale", 2);
+        return this.transformer("cereale", 3);
     }
 }

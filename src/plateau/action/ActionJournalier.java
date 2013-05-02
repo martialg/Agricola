@@ -23,6 +23,7 @@ public class ActionJournalier extends CaseActionChoix{
         return true;
     }
     
+    @Override
     public boolean action(Joueur joueur){
         joueur.getRessources().ajouterNourriture(1);
         return true;

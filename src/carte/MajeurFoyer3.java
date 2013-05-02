@@ -54,7 +54,7 @@ public class MajeurFoyer3 extends AmenagementMajeur{
     }
     
     public boolean transformerBoeuf(){
-        return this.transformer("boueuf", 3);
+        return this.transformer("boeuf", 3);
     }
     
     public boolean cuirPain(){
