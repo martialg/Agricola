@@ -1,6 +1,5 @@
 package carte;
 
-import java.util.ArrayList;
 import joueur.Joueur;
 import ressources.Argile;
 import ressources.Bois;
@@ -9,18 +8,21 @@ import ressources.Pierre;
 import ressources.Ressource;
 import ressources.Roseau;
 
-public class AmenagementMajeur {
-    protected Symbole symbole;
-    protected int points;
-    protected ArrayList<MatierePremiere> ressources_necessaires;
-    protected Joueur joueur;
+public class AmenagementMajeurRemplacant extends AmenagementMajeur{
+    protected boolean defausse;
     
-    public boolean attribuer(Joueur joueur){
-        return this.attribuerAUnJoueur(joueur);
+    public AmenagementMajeurRemplacant(){
+        super();
+        this.defausse = false;
     }
     
+    public void setDefausse(){
+        this.defausse=true;
+    }
+    
+    @Override
     protected boolean attribuerAUnJoueur(Joueur joueur){
-        if(this.ressources_necessaires.isEmpty()){
+        if((this.defausse==true)&&(this.ressources_necessaires.isEmpty())){
             return true;
         }else{
             Ressource ressources_joueur = joueur.getRessources();
@@ -60,12 +62,4 @@ public class AmenagementMajeur {
         }
     }
     
-    public AmenagementMajeur(){
-        ressources_necessaires = new ArrayList<MatierePremiere>();
-        joueur = null;
-    }
-    
-    protected Symbole getSymbole(){
-        return this.symbole;
-    }
 }
