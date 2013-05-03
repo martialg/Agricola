@@ -3,7 +3,7 @@ package plateau.action;
 import joueur.Joueur;
 
 public class Action1Champ extends CaseAction{
-
+//test
     public boolean action(Joueur joueur) {
         if(joueur.getPlateauJoueur().casesLibre().isEmpty()){
             return false;
