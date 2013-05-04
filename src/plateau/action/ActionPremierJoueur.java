@@ -10,9 +10,7 @@ public class ActionPremierJoueur extends RessourceCumulable{
     }
 
     public boolean action(Joueur joueur) {
-        //devient premier joueur
         Agricola.setPremierJoueur(joueur);
-        //ajout des ressources
         joueur.getRessources().ajouterNourriture(quantite_cumulee);
         this.prendreLesRessource();
         this.joueur_sur_case = joueur;

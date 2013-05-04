@@ -68,6 +68,10 @@ public  class PlateauJoueur {
         this.liste_case.set(numero_case - 1 , new CaseChamps(numero_case));
     }
     
+    public void transformerCaseEnHabitat(int numero_case, TypeHabitation th){
+        this.liste_case.set(numero_case -1, new CaseHabitation(numero_case));
+    }
+    
     public ArrayList<Case> casesLibre(){
         ArrayList<Case> liste_place_libre = new ArrayList<Case>();
         for(Case case_actuelle : this.liste_case){

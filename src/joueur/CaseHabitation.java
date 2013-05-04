@@ -10,6 +10,12 @@ public class CaseHabitation extends Case{
         this.type = TypeHabitation.BOIS;
     }
     
+    public CaseHabitation(int num, TypeHabitation type){
+        super(num);
+        this.occupe = false;
+        this.type = type;
+    }
+    
     public CaseHabitation(boolean occupe,int num){
         super(num);
         this.occupe = occupe;
