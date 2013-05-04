@@ -8,6 +8,13 @@ public class ActionCloture extends CaseAction{
     public ActionCloture(){    
     }
     
+    // ATTENTION !!!!!!!
+    // dans l'interface graphique faut seulement que le joueur ait le droit d'acheter des bordures autorisées
+    // cad près des autres paturages si il y en a !
+    // pour ce faire il faut créer une méthode qui retourne les bordures autorisées. A voir plus tard.
+    
+    
+    
     public boolean peutAcheterCloture(Joueur joueur){
         if(joueur.getRessources().getBois().getQuantite() > 0){
             return true;

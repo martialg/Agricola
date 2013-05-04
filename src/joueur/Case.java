@@ -6,8 +6,29 @@ public class Case {
     private boolean bordure_bas;
     private boolean bordure_gauche;
     private boolean bordure_droite;
+    
     public Case(int num){
         this.numero_case = num;
+    }
+
+    public int getNumeroCase() {
+        return numero_case;
+    }
+
+    public boolean getBordureHaut() {
+        return bordure_haut;
+    }
+
+    public boolean getBordureBas() {
+        return bordure_bas;
+    }
+
+    public boolean getBordureGauche() {
+        return bordure_gauche;
+    }
+
+    public boolean getBordureDroite() {
+        return bordure_droite;
     }
     
     public void setBordureHaut(boolean choix){
@@ -41,7 +62,4 @@ public class Case {
         return true;
     }
     
-    public int getNumeroCase(){
-        return this.numero_case;
-    }
 }
