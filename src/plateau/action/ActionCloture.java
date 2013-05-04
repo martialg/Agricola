@@ -1,8 +1,10 @@
 package plateau.action;
 
-import agricola.Agricola;
 import joueur.Joueur;
 
+/*
+ * Periode 1
+ */
 public class ActionCloture extends CaseAction{
     
     public ActionCloture(){    

@@ -16,4 +16,18 @@ public class CaseHabitation extends Case{
         this.type = TypeHabitation.BOIS;
     }
     
+    public boolean getOccupe(){
+        return occupe;
+    }
+    
+    public TypeHabitation getType(){
+        return this.type;
+    }
+    
+    public void ameliorer(){
+        if(this.type == TypeHabitation.BOIS)
+            this.type = TypeHabitation.ARGILE;
+        else
+            this.type = TypeHabitation.PIERRE;
+    }       
 }

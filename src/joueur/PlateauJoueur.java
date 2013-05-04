@@ -7,7 +7,9 @@ public  class PlateauJoueur {
     private ArrayList<Boolean> clotures_lignes;
     private ArrayList<Boolean> clotures_colonnes;
     private ArrayList<Paturage> liste_paturages;
-    
+    private int enfant;
+    private int enfant_sans_case_libre;
+    private int adulte_sans_case_libre;
     
     public PlateauJoueur(){
         this.liste_case = new ArrayList<Case>();
@@ -15,8 +17,8 @@ public  class PlateauJoueur {
             Case c = new CasePaturage(i);
             this.liste_case.add(c);
         }
-        this.liste_case.set(6, new CaseHabitation(true,6));
-        this.liste_case.set(11, new CaseHabitation(true,11));
+        this.liste_case.set(5, new CaseHabitation(true,6));
+        this.liste_case.set(10, new CaseHabitation(true,11));
         
         this.clotures_lignes = new ArrayList<Boolean>();
         for(int i = 0; i < 20; i++)
@@ -27,7 +29,32 @@ public  class PlateauJoueur {
             this.clotures_colonnes.add(Boolean.FALSE);
         
         this.liste_paturages = new ArrayList<Paturage>();
+        this.enfant = 0;
     }
+    
+    public void ajouterEnfant(){
+        this.enfant++;
+    }
+    
+    public int getEnfant(){
+        return this.enfant;
+    }
+    
+    public void ajouterEnfantSansCaseLibre(){
+        this.enfant_sans_case_libre++;
+    }
+    
+    public int getEnfantSansCaseLibre(){
+        return this.enfant_sans_case_libre;
+    }
+    
+    public void ajouterAdulte(){
+        this.adulte_sans_case_libre++;
+    }
+    
+    public int getAdulteSansCaseLibre(){
+        return this.adulte_sans_case_libre;
+    } 
     
     public void addPaturage(Paturage p){
         this.liste_paturages.add(p);
@@ -35,6 +62,10 @@ public  class PlateauJoueur {
     
     public ArrayList<Case> getListeCase(){
         return this.liste_case;
+    }
+    
+    public void transformerCaseEnChamps(int numero_case){
+        this.liste_case.set(numero_case - 1 , new CaseChamps(numero_case));
     }
     
     public ArrayList<Case> casesLibre(){
@@ -83,11 +114,15 @@ public  class PlateauJoueur {
             int reste = indice % 4;
             if(reste == 0){
                 this.liste_case.get(indice).setBordureHaut(true);
+                this.verifierNouveauPaturage(this.liste_case.get(indice));
             }else if(reste == 1 || reste == 2){
                 this.liste_case.get(indice).setBordureHaut(true);
                 this.liste_case.get(indice-5).setBordureBas(true);
+                this.verifierNouveauPaturage(this.liste_case.get(indice));
+                this.verifierNouveauPaturage(this.liste_case.get(indice-5));
             }else{
                 this.liste_case.get(indice-5).setBordureBas(true);
+                this.verifierNouveauPaturage(this.liste_case.get(indice-5));
             }
             
         }else{

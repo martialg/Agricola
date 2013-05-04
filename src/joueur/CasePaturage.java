@@ -16,6 +16,10 @@ public class CasePaturage extends Case{
         this.etable = true;
     }
     
+    public boolean possedeEtable(){
+        return this.etable;
+    }
+    
     
     
 }

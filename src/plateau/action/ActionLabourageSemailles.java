@@ -1,17 +1,19 @@
 package plateau.action;
 
-import carte.AmenagementMajeur;
+import joueur.Case;
 import joueur.CaseChamps;
 import joueur.Joueur;
 import ressources.Cereale;
 import ressources.Legume;
-import carte.Symbole;
 
-/*
- * Periode 1
- */
-public class ActionSemailles extends CaseAction{
-    public ActionSemailles(){
+public class ActionLabourageSemailles extends CaseAction{
+    public ActionLabourageSemailles(){
+        
+    }
+    
+    public void labourer(Joueur joueur, Case c){
+        this.joueur_sur_case = joueur;
+        joueur.getPlateauJoueur().transformerCaseEnChamps(c.getNumeroCase());
     }
     
     public boolean peutSemailles(Joueur joueur, String type){
@@ -34,19 +36,4 @@ public class ActionSemailles extends CaseAction{
         }
         this.joueur_sur_case = joueur;
     }
-    
-    public boolean peutCuirPain(Joueur joueur){
-        if(joueur.getRessources().getCereale().getQuantite() == 0)
-            return false;
-        else
-            for(AmenagementMajeur carte : joueur.getCartes().getAmenagement())
-                if(carte.getSymbole() == Symbole.BOULANGERIE_CUISSON || carte.getSymbole() == Symbole.CUISSON)
-                    return true;
-        return false;
-    }
-            
-    // ATTENTION : ecrire une méthode pour acheter le pain selon la carte passee
-    // pour attribuer le joueur
-    
-    
 }

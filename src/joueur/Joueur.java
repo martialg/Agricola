@@ -1,5 +1,7 @@
 package joueur;
 
+import agricola.Agricola;
+import carte.AmenagementMajeur;
 import java.util.ArrayList;
 import ressources.Ressource;
 
@@ -46,5 +48,31 @@ public class Joueur {
             i++;
         }
         return libre;
+    }
+    
+    public int compterHabitants(){
+        int compteur = 0;
+        
+        ArrayList<Case> liste_cases = this.getPlateauJoueur().getListeCase();
+        for(Case c : liste_cases){
+            if(c instanceof CaseHabitation){
+                CaseHabitation case_temp = (CaseHabitation)c;
+                if(case_temp.getOccupe()){
+                    compteur++;
+                }
+            }
+        }
+        compteur += this.getPlateauJoueur().getEnfant();
+        compteur += this.getPlateauJoueur().getEnfantSansCaseLibre();
+        compteur += this.getPlateauJoueur().getAdulteSansCaseLibre();
+        return compteur;
+    }
+    
+    public boolean peutJouerAmenagementMajeur(){
+        for(AmenagementMajeur am : Agricola.getPlateau().getAmenagements()){
+            if(am.attributionPossible(this))
+                return true;
+        }
+        return false;
     }
 }

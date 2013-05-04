@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import agricola.Agricola;
 import joueur.Joueur;
 
+/*
+ * Periode 1
+ */
 public class ActionAmenagement extends CaseAction{
     
     public ActionAmenagement(){

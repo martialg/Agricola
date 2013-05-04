@@ -12,8 +12,13 @@ public class MajeurFourneau5 extends AmenagementMajeurRemplacant{
         this.ressources_necessaires.add(new Argile(5));
     }
     
-    
-    public boolean transformer(String type, int nourriture){
+    /**
+     * A ne pas utiliser. Utiliser les transfomerTYPE
+     * @param type
+     * @param nourriture
+     * @return 
+     */
+    private boolean transformer(String type, int nourriture){
         MatierePremiere mp = null;
         switch(type){
             case "legume":

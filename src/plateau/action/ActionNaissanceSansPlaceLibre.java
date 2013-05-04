@@ -1,0 +1,30 @@
+package plateau.action;
+
+import java.util.ArrayList;
+import joueur.Case;
+import joueur.CaseHabitation;
+import joueur.Joueur;
+
+public class ActionNaissanceSansPlaceLibre extends CaseAction {
+    public ActionNaissanceSansPlaceLibre(){
+        
+    }
+    
+    public boolean action(Joueur joueur){
+        if(joueur.compterHabitants() < 5){
+            ArrayList<Case> liste_cases = joueur.getPlateauJoueur().getListeCase();
+            for(Case c : liste_cases){
+                if(c instanceof CaseHabitation){
+                    CaseHabitation case_temp = (CaseHabitation)c;
+                    if(!case_temp.getOccupe()){
+                        joueur.getPlateauJoueur().ajouterEnfant();
+                    }
+                }
+            }
+            joueur.getPlateauJoueur().ajouterEnfantSansCaseLibre();
+            this.joueur_sur_case = joueur;
+            return true;
+        }
+        return false;
+    }
+}
