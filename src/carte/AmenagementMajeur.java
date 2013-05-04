@@ -89,7 +89,7 @@ public class AmenagementMajeur {
         joueur = null;
     }
     
-    protected Symbole getSymbole(){
+    public Symbole getSymbole(){
         return this.symbole;
     }
 }

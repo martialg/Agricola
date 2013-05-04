@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public  class PlateauJoueur {
     private ArrayList<Case> liste_case;
-    private Boolean[][] clotures_lignes;
-    private Boolean[][] clotures_colonnes;
+    private ArrayList<Boolean> clotures_lignes;
+    private ArrayList<Boolean> clotures_colonnes;
     
     
     
@@ -18,15 +18,13 @@ public  class PlateauJoueur {
         this.liste_case.set(6, new CaseHabitation(true,6));
         this.liste_case.set(11, new CaseHabitation(true,11));
         
-        this.clotures_lignes = new Boolean[5][4];
-        for(int i = 0; i < this.clotures_lignes.length; i++)
-            for(int j = 0; j < this.clotures_lignes[i].length; j++)
-                this.clotures_lignes[i][j] = false;
+        this.clotures_lignes = new ArrayList<Boolean>();
+        for(int i = 0; i < 20; i++)
+            this.clotures_lignes.add(Boolean.FALSE);
         
-        this.clotures_colonnes = new Boolean[6][3];
-        for(int i = 0; i < this.clotures_colonnes.length; i++)
-            for(int j = 0; j < this.clotures_colonnes[i].length; j++)
-                this.clotures_colonnes[i][j] = false;
+        this.clotures_colonnes = new ArrayList<Boolean>();
+        for(int i = 0; i < 18; i++)
+            this.clotures_colonnes.add(Boolean.FALSE);
     }
     
     public ArrayList<Case> getListeCase(){
@@ -125,6 +123,40 @@ public  class PlateauJoueur {
         }else{
             
             return null;
+        }
+    }
+    
+    public void poserCloture(int type, int indice){
+        if(type == 1){
+            //vertical
+            this.clotures_colonnes.set(indice, Boolean.TRUE);
+            int reste = indice % 4;
+            if(reste == 0){
+                this.liste_case.get(indice).setBordureHaut(true);
+            }else if(reste == 1 || reste == 2){
+                this.liste_case.get(indice).setBordureHaut(true);
+                this.liste_case.get(indice-5).setBordureBas(true);
+            }else{
+                this.liste_case.get(indice-5).setBordureBas(true);
+            }
+            
+        }else{
+            //horizontal
+            this.clotures_lignes.set(indice, Boolean.TRUE);
+            if(indice < 6){
+                if(indice == 0){
+                    this.liste_case.get(0).setBordureGauche(true);
+                }else if(indice < 5){
+                    this.liste_case.get(indice-1).setBordureDroite(true);
+                    this.liste_case.get(indice).setBordureGauche(true);
+                }else{
+                    this.liste_case.get(indice-1).setBordureDroite(true);
+                }
+            }else if(indice >= 6 && indice < 12){
+                
+            }else{
+                
+            }
         }
     }
     
