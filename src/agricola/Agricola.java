@@ -20,6 +20,10 @@ public class Agricola {
         return tour_courant;
     }
     
+    public static void ajouterJoueur(Joueur joueur){
+        joueurs.add(joueur);
+    }
+    
     public static void ajouterNourritureJoueurSurTour(int numero_tour, Joueur joueur, int quantite){
         ArrayList<Periode> periodes = plateau.getPeriodes();
         boolean trouve = false;

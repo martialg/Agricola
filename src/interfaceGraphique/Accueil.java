@@ -49,7 +49,6 @@ public class Accueil extends JPanel implements ActionListener {
     private static Color couleur_violet_pressed;
     private static Color couleur_naturel_over;
     private static Color couleur_naturel_pressed;
-    private static Agricola agricola;
 
     public Accueil() {
         try {
@@ -306,7 +305,7 @@ public class Accueil extends JPanel implements ActionListener {
                 break;
             case "Joueur 1":
                 Joueur j1 = new Joueur("Joueur 1",Couleur.ROUGE);
-                
+                //Agricola.ajouterJoueur(j1);
                 break;
             case "Règle":
                 System.exit(0);
