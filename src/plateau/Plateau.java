@@ -74,7 +74,7 @@ public class Plateau {
         liste_periode_6.add(new ActionRenovationCloture());
         this.periodes.add(new Periode(6, liste_periode_6));
         
-        
+        this.amenagements = new ArrayList<AmenagementMajeur>();
         this.amenagements.add(new MajeurFoyer2());
         this.amenagements.add(new MajeurFoyer3());
         this.amenagements.add(new MajeurFourneau4());
@@ -86,6 +86,7 @@ public class Plateau {
         this.amenagements.add(new MajeurPoterie());
         this.amenagements.add(new MajeurVannerie());
         
+        this.actions_fixes = new ArrayList<CaseAction>();
         this.actions_fixes.add(new ActionPieceEtable());
         this.actions_fixes.add(new ActionPremierJoueur());
         this.actions_fixes.add(new Action1Cereale());

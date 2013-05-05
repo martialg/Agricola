@@ -1,7 +1,6 @@
 package plateau;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import plateau.action.CaseAction;
 
@@ -12,6 +11,7 @@ public class Periode {
     
     public Periode(int numero, ArrayList<CaseAction> liste_actions){
         this.numero = numero;
+        tours = new ArrayList<Tour>();
         ArrayList<CaseAction> liste_melangee = new ArrayList<CaseAction>(liste_actions);
         Collections.shuffle(liste_melangee);
         for(int i = 0; i < liste_melangee.size(); i++){
@@ -25,5 +25,9 @@ public class Periode {
     
     public Tour getTour(int index){
         return this.tours.get(index);
+    }
+    
+    public int getNumero(){
+        return this.numero;
     }
 }
