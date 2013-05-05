@@ -2,9 +2,10 @@ package interfaceGraphique;
 
 import carte.AmenagementMajeur;
 import javax.swing.JButton;
+import plateau.action.CaseAction;
 
 public class BoutonPeriode extends JButton{
-    private AmenagementMajeur amenagement;
+    private CaseAction case_action;
     
     protected void createButton() {
         this.setFocusPainted(true);
@@ -12,12 +13,12 @@ public class BoutonPeriode extends JButton{
         this.setContentAreaFilled(false);
     }
     
-    public void setAmenagement(AmenagementMajeur amenagement){
-        this.amenagement = amenagement;
+    public void setCaseAction(CaseAction case_action){
+        this.case_action = case_action;
     }
     
-    public AmenagementMajeur getAmenagement(){
-        return this.amenagement;
+    public CaseAction getCaseAction(){
+        return this.case_action;
     }
     
 }
