@@ -447,10 +447,10 @@ public class InterfacePlateau extends JPanel implements ActionListener {
 
         //plateau.add(bb);
 
-
+        Agricola.debutDeTour();
         afficheBoutonJoueurPresent();
 
-        Agricola.debutDeTour();
+        
     }
 
     public static void afficheBoutonJoueurPresent() {
