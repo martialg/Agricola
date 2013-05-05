@@ -376,7 +376,7 @@ public class InterfaceAccueil extends JPanel implements ActionListener {
                     }
                     fenetre.dispose();
                     try {
-                        InterfacePlateau.affichage();
+                        InterfacePlateau.start();
                     } catch (IOException ex) {
                         Logger.getLogger(InterfaceAccueil.class.getName()).log(Level.SEVERE, null, ex);
                     }

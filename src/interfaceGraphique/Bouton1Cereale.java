@@ -11,6 +11,7 @@ public class Bouton1Cereale extends JButton implements ActionListener{
     
     public Bouton1Cereale(String nom) {
         super();
+        this.setName(nom);
         action = new Action1Cereale();
         addActionListener(this);
     }

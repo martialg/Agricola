@@ -13,6 +13,9 @@ public abstract class RessourceCumulable extends CaseAction{
         quantite_cumulee += multiplicateur;
     }
     
+    public int getQuantiteCumulee(){
+        return this.quantite_cumulee;
+    }
     public void prendreLesRessource(){
         quantite_cumulee = 0;
     }

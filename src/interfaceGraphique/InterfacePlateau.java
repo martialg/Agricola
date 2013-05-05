@@ -65,6 +65,10 @@ public class InterfacePlateau extends JPanel implements ActionListener {
     private static Color couleur_violet_pressed;
     private static Color couleur_naturel_over;
     private static Color couleur_naturel_pressed;
+    private static Bouton3Bois bouton3Bois;
+    private static Bouton1Argile bouton1Argile;
+    private static Bouton1Roseau bouton1Roseau;
+    private static BoutonPeche boutonPeche;
     private static Bouton1Cereale bouton1Cereale;
     private static BoutonPremierJoueur boutonPremierJoueur;
 
@@ -212,6 +216,34 @@ public class InterfacePlateau extends JPanel implements ActionListener {
 
 
         //########################################
+        //Bouton 3 Bois
+        bouton3Bois = new Bouton3Bois("3 Bois");
+        bouton3Bois.createButton();
+        bouton3Bois.setBounds(360, 280, 200, 120);
+        bouton3Bois.setVisible(true);
+        
+        //########################################
+        //Bouton 1 Argile
+        bouton1Argile = new Bouton1Argile("1 Argile");
+        bouton1Argile.createButton();
+        bouton1Argile.setBounds(360, 280, 180, 120);
+        bouton1Argile.setVisible(true);
+        
+        //########################################
+        //Bouton 1 Roseau
+        bouton1Roseau = new Bouton1Roseau("1 Roseau");
+        bouton1Roseau.createButton();
+        bouton1Roseau.setBounds(360, 280, 180, 120);
+        bouton1Roseau.setVisible(true);
+        
+        //########################################
+        //Bouton 1 Roseau
+        boutonPeche = new BoutonPeche("1 Peche");
+        boutonPeche.createButton();
+        boutonPeche.setBounds(360, 280, 180, 120);
+        boutonPeche.setVisible(true);
+        
+        //########################################
         //Bouton 1 Cereale
         bouton1Cereale = new Bouton1Cereale("1 Céréale");
         bouton1Cereale.createButton();
@@ -223,6 +255,7 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         boutonPremierJoueur.createButton();
         boutonPremierJoueur.setBounds(360, 155, 180, 120);
         boutonPremierJoueur.setVisible(true);
+        
 
 
         //fenetre principale
@@ -249,6 +282,11 @@ public class InterfacePlateau extends JPanel implements ActionListener {
 
         plateau.add(label_choix_joueur);
 
+        
+        plateau.add(bouton3Bois);
+        plateau.add(bouton1Argile);
+        plateau.add(bouton1Roseau);
+        plateau.add(boutonPeche);
         plateau.add(boutonPremierJoueur);
         plateau.add(bouton1Cereale);
 
@@ -262,7 +300,6 @@ public class InterfacePlateau extends JPanel implements ActionListener {
 
     public static void afficheBoutonJoueurPresent() {
         for (Joueur joueur : Agricola.getJoueurs()) {
-            System.out.println(joueur.getNom());
             if (joueur.getCouleur() == Couleur.ROUGE) {
                 interface_joueur1 = new InterfacePlateauJoueur(joueur);
                 listeplateau.add(interface_joueur1);
@@ -302,6 +339,7 @@ public class InterfacePlateau extends JPanel implements ActionListener {
     }
 
     public static void start() throws IOException {
+        Agricola.premierTour();
         InterfacePlateau.affichage();
     }
 
