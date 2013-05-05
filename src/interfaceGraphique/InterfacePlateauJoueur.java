@@ -27,13 +27,14 @@ public class InterfacePlateauJoueur extends JPanel implements MouseListener, Act
     private static Joueur joueur;
     
 
-    public InterfacePlateauJoueur() {
+    public InterfacePlateauJoueur(Joueur j) {
         try {
             background = ImageIO.read(new File("images/plateau-joueur-base.png"));
         } catch (IOException ex) {
             Logger.getLogger(InterfacePlateauJoueur.class.getName()).log(Level.SEVERE, null, ex);
         }
-        fenetre = new JFrame();
+        joueur = j;
+        fenetre = new JFrame(joueur.getNom());
         fenetre.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         fenetre.setSize(600, 458);
         fenetre.setContentPane(this);
@@ -57,14 +58,10 @@ public class InterfacePlateauJoueur extends JPanel implements MouseListener, Act
 
     public static void affichage() {
         
-        
-        
-        
         //fenetre principale
-        plateau_joueur = new InterfacePlateauJoueur();
+        plateau_joueur = new InterfacePlateauJoueur(joueur);
         plateau_joueur.setOpaque(true);
         plateau_joueur.setLayout(null);
-        
         
     }
 

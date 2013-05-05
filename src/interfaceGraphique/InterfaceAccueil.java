@@ -348,7 +348,7 @@ public class InterfaceAccueil extends JPanel implements ActionListener {
                 joueur_violet.setColor(couleur_violet_over);
                 break;
             case "Joueur 5":
-                joueur5 = new Joueur("Joueur 4", Couleur.NATUREL);
+                joueur5 = new Joueur("Joueur 5", Couleur.NATUREL);
                 Agricola.ajouterJoueur(joueur5);
                 joueur_naturel.setColor(couleur_naturel_over);
                 break;
