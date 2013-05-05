@@ -20,11 +20,11 @@ import joueur.Joueur;
 
 public class InterfacePlateauJoueur extends JPanel implements MouseListener, ActionListener {
 
-    private static JFrame fenetre;
-    private static BufferedImage background;
-    private static InterfacePlateauJoueur plateau_joueur;
-    private static ArrayList<GradientCircularButton> pions;
-    private static Joueur joueur;
+    private JFrame fenetre;
+    private BufferedImage background;
+    private InterfacePlateauJoueur plateau_joueur;
+    private ArrayList<GradientCircularButton> pions;
+    private Joueur joueur;
     
 
     public InterfacePlateauJoueur(Joueur j) {
@@ -42,30 +42,36 @@ public class InterfacePlateauJoueur extends JPanel implements MouseListener, Act
         //fenetre.getContentPane().setBackground(c1);
         fenetre.setResizable(false);
         fenetre.setLocationRelativeTo(fenetre.getParent());
-        fenetre.setVisible(true);
-
+        fenetre.setVisible(false);
     }
     
-    public static void intialisationNbPion(){
+    public void setVisibleTrue(){
+        fenetre.setVisible(true);
+    }
+    
+    public void setVisibleFalse(){
+        fenetre.setVisible(false);
+    }
+    
+    public void intialisationNbPion(){
         pions = new ArrayList<GradientCircularButton>();
         pions.add(new GradientCircularButton("Joueur",new Color(0xDC3333)));
         pions.add(new GradientCircularButton("Joueur",new Color(0xDC3333)));
     }
     
-    public static void affichePions(){
+    public void affichePions(){
         
     }
 
-    public static void affichage() {
+    public void affichage() {
         
-        //fenetre principale
         plateau_joueur = new InterfacePlateauJoueur(joueur);
         plateau_joueur.setOpaque(true);
         plateau_joueur.setLayout(null);
         
     }
 
-    public static void start() throws IOException {
+    public void start() throws IOException {
         InterfacePlateau.affichage();
     }
 
