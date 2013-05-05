@@ -63,7 +63,7 @@ public class Ressource {
     
 
     public Ressource(){
-        this.nb_membres_famille = 3; //3 car 2 utilisés à l'initialisation
+        this.nb_membres_famille = 3;
         this.nb_clotures = 15;
         this.nb_etables = 4;
         this.nourriture = 3;
@@ -84,5 +84,16 @@ public class Ressource {
     public void ajouterNourriture(int quantite){
         this.nourriture += quantite;
     }
+    
+    public int getNbMembresFamille(){
+        return this.nb_membres_famille;
+    }
 
+    public int getNbCloture(){
+        return this.nb_clotures;
+    }
+    
+    public int getNbEtable(){
+        return this.nb_etables;
+    }
 }

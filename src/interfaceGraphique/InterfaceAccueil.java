@@ -365,15 +365,18 @@ public class InterfaceAccueil extends JPanel implements ActionListener {
                     if (joueur3ajoute == true) {
                         joueur3 = new Joueur("Joueur 3", Couleur.BLEU);
                         Agricola.ajouterJoueur(joueur3);
+                        if (joueur4ajoute == true) {
+                            joueur4 = new Joueur("Joueur 4", Couleur.VIOLET);
+                            Agricola.ajouterJoueur(joueur4);
+                            if (joueur5ajoute == true) {
+                                joueur5 = new Joueur("Joueur 5", Couleur.NATUREL);
+                                Agricola.ajouterJoueur(joueur5);
+                            }
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Veuillez saisir au minimum les 2 premiers Joueurs", "Attention", 1);
                     }
-                    if (joueur4ajoute == true) {
-                        joueur4 = new Joueur("Joueur 4", Couleur.VIOLET);
-                        Agricola.ajouterJoueur(joueur4);
-                    }
-                    if (joueur5ajoute == true) {
-                        joueur5 = new Joueur("Joueur 5", Couleur.NATUREL);
-                        Agricola.ajouterJoueur(joueur5);
-                    }
+
                     fenetre.dispose();
                     try {
                         InterfacePlateau.start();
