@@ -362,6 +362,22 @@ public class InterfaceAccueil extends JPanel implements ActionListener {
                     Agricola.ajouterJoueur(joueur1);
                     joueur2 = new Joueur("Joueur 2", Couleur.VERT);
                     Agricola.ajouterJoueur(joueur2);
+                    if ((joueur5ajoute == true) && (joueur4ajoute == false) && (joueur3ajoute == false)) {
+                        JOptionPane.showMessageDialog(null, "Veuillez seléctionner les Joueurs dans l'ordre proposé", "Attention", 1);
+                        break;
+                    }
+                    if ((joueur5ajoute == true) && (joueur4ajoute == true) && (joueur3ajoute == false)) {
+                        JOptionPane.showMessageDialog(null, "Veuillez seléctionner les Joueurs dans l'ordre proposé", "Attention", 1);
+                        break;
+                    }
+                    if ((joueur5ajoute == false) && (joueur4ajoute == true) && (joueur3ajoute == false)) {
+                        JOptionPane.showMessageDialog(null, "Veuillez seléctionner les Joueurs dans l'ordre proposé", "Attention", 1);
+                        break;
+                    }
+                    if ((joueur5ajoute == true) && (joueur4ajoute == false) && (joueur3ajoute == true)) {
+                        JOptionPane.showMessageDialog(null, "Veuillez seléctionner les Joueurs dans l'ordre proposé", "Attention", 1);
+                        break;
+                    }
                     if (joueur3ajoute == true) {
                         joueur3 = new Joueur("Joueur 3", Couleur.BLEU);
                         Agricola.ajouterJoueur(joueur3);
@@ -373,10 +389,7 @@ public class InterfaceAccueil extends JPanel implements ActionListener {
                                 Agricola.ajouterJoueur(joueur5);
                             }
                         }
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Veuillez saisir au minimum les 2 premiers Joueurs", "Attention", 1);
                     }
-
                     fenetre.dispose();
                     try {
                         InterfacePlateau.start();
@@ -388,7 +401,10 @@ public class InterfaceAccueil extends JPanel implements ActionListener {
                 }
                 break;
             case "Règle":
-                System.exit(0);
+                System.exit(
+                        0);
+
+
                 break;
         }
     }
