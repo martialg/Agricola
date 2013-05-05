@@ -21,8 +21,14 @@ public class BoutonJournalier extends BoutonAction implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String[] message = {"bois", "roseau", "argile", "pierre"};
-        JOptionPane.showMessageDialog(null, new JComboBox(message), "Quel type de ressource voulez vous une unité ?", JOptionPane.PLAIN_MESSAGE);
-        this.ajoutBouton();
+        String[] message = {"", "bois", "roseau", "argile", "pierre"};
+        JComboBox box = new JComboBox(message);
+        JOptionPane.showMessageDialog(null, box, "Quel type de ressource voulez vous une unité ?", JOptionPane.PLAIN_MESSAGE); 
+        String result = box.getSelectedItem().toString();
+        if(result.compareTo("") != 0){
+            this.action.action(Agricola.getJoueurCourant(), result);
+            this.ajoutBouton();
+            this.passeLaMain();
+        }
     }
 }
