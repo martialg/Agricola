@@ -74,7 +74,7 @@ public class InterfacePlateau extends JPanel implements ActionListener {
     private static BoutonPremierJoueur boutonPremierJoueur;
     private static Bouton1Cereale bouton1Cereale;
     private static BoutonLabourer boutonLabourer;
-    private static boutonEtablePain boutonEtablePain;
+    private static BoutonEtablePain boutonEtablePain;
     private static BoutonJournalier boutonJournalier;
 
     public InterfacePlateau() {
@@ -277,7 +277,7 @@ public class InterfacePlateau extends JPanel implements ActionListener {
     
         //########################################
         //Bouton Etable Pain
-        boutonEtablePain = new boutonEtablePain("Etable Pain");
+        boutonEtablePain = new BoutonEtablePain("Etable Pain");
         boutonEtablePain.createButton();
         boutonEtablePain.setBounds(365, 275, 190, 120);
         boutonEtablePain.setVisible(true);
