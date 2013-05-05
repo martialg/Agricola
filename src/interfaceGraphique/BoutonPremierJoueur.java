@@ -10,10 +10,10 @@ import plateau.action.ActionPremierJoueur;
 public class BoutonPremierJoueur extends BoutonAction implements ActionListener{
     private ActionPremierJoueur action;
     
-    public BoutonPremierJoueur(String nom){
+    public BoutonPremierJoueur(String nom, ActionPremierJoueur action){
         super();
         this.setName(nom);
-        action = new ActionPremierJoueur();
+        this.action = action;
         addActionListener(this);
     }
 

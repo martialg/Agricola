@@ -6,7 +6,8 @@ import agricola.Agricola;
 public class ActionPremierJoueur extends RessourceCumulable{
     
     public ActionPremierJoueur(){
-        
+        super();
+        this.multiplicateur = 1;
     }
 
     public boolean action(Joueur joueur) {

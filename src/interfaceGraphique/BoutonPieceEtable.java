@@ -8,10 +8,10 @@ import plateau.action.ActionPieceEtable;
 public class BoutonPieceEtable extends BoutonAction implements ActionListener{
     private ActionPieceEtable action;
 
-    public BoutonPieceEtable(String nom){
+    public BoutonPieceEtable(String nom, ActionPieceEtable action){
         super();
         this.setName(nom);
-        action = new ActionPieceEtable();
+        this.action = action;
         addActionListener(this);
     }
     

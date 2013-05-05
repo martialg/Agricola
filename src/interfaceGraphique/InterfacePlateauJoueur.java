@@ -355,8 +355,6 @@ public class InterfacePlateauJoueur extends JPanel implements ActionListener {
         fenetre.add(label_cereale);
         fenetre.add(label_nb_legume);
         fenetre.add(label_legume);
-        
-        
     }
 
     public void start() throws IOException {

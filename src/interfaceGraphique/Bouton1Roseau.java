@@ -11,10 +11,10 @@ public class Bouton1Roseau extends BoutonAction implements ActionListener {
 
     private Action1Roseau action;
 
-    public Bouton1Roseau(String nom) {
+    public Bouton1Roseau(String nom, Action1Roseau action) {
         super();
         this.setName(nom);
-        action = new Action1Roseau();
+        this.action = action;
         addActionListener(this);
     }
 
