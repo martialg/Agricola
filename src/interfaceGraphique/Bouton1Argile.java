@@ -3,24 +3,17 @@ package interfaceGraphique;
 import agricola.Agricola;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import plateau.action.Action1Argile;
 
-public class Bouton1Argile extends JButton implements ActionListener{
+public class Bouton1Argile extends BoutonAction implements ActionListener{
     private Action1Argile action;
 
     public Bouton1Argile(String nom){
         super();
+        this.setName(nom);
         action = new Action1Argile();
         addActionListener(this);
-    }
-    
-    
-    protected void createButton() {
-        this.setFocusPainted(true);
-        this.setBorderPainted(true);
-        this.setContentAreaFilled(false);
     }
     
     @Override

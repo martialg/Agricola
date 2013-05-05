@@ -3,24 +3,17 @@ package interfaceGraphique;
 import agricola.Agricola;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import plateau.action.Action3Bois;
 
-public class Bouton3Bois extends JButton implements ActionListener{
+public class Bouton3Bois extends BoutonAction implements ActionListener{
     private Action3Bois action;
 
     public Bouton3Bois(String nom){
         super();
+        this.setName(nom);
         action = new Action3Bois();
         addActionListener(this);
-    }
-    
-    
-    protected void createButton() {
-        this.setFocusPainted(true);
-        this.setBorderPainted(true);
-        this.setContentAreaFilled(false);
     }
     
     @Override

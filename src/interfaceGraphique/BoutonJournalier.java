@@ -1,28 +1,19 @@
 package interfaceGraphique;
 
-import agricola.Agricola;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import plateau.action.ActionJournalier;
-import plateau.action.ActionPeche;
 
-public class BoutonJournalier extends JButton implements ActionListener{
+public class BoutonJournalier extends BoutonAction implements ActionListener{
     private ActionJournalier action;
 
     public BoutonJournalier(String nom){
         super();
+        this.setName(nom);
         action = new ActionJournalier();
         addActionListener(this);
-    }
-    
-    
-    protected void createButton() {
-        this.setFocusPainted(true);
-        this.setBorderPainted(true);
-        this.setContentAreaFilled(false);
     }
     
     @Override

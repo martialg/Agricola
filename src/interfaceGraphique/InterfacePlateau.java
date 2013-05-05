@@ -7,8 +7,6 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +20,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import joueur.Couleur;
 import joueur.Joueur;
-import plateau.action.Action3Bois;
 
 public class InterfacePlateau extends JPanel implements ActionListener {
 
@@ -74,8 +71,23 @@ public class InterfacePlateau extends JPanel implements ActionListener {
     private static BoutonPremierJoueur boutonPremierJoueur;
     private static Bouton1Cereale bouton1Cereale;
     private static BoutonLabourer boutonLabourer;
-    private static BoutonEtablePain boutonEtablePain;
+    private static BoutonEtableEtPain boutonEtableEtPain;
     private static BoutonJournalier boutonJournalier;
+    
+    private static BoutonPeriode1 boutonPeriode1Tour1;
+    private static BoutonPeriode1 boutonPeriode1Tour2;
+    private static BoutonPeriode1 boutonPeriode1Tour3;
+    private static BoutonPeriode1 boutonPeriode1Tour4;
+    private static BoutonPeriode2 boutonPeriode2Tour5;
+    private static BoutonPeriode2 boutonPeriode2Tour6;
+    private static BoutonPeriode2 boutonPeriode2Tour7;
+    private static BoutonPeriode3 boutonPeriode3Tour8;
+    private static BoutonPeriode3 boutonPeriode3Tour9;
+    private static BoutonPeriode4 boutonPeriode4Tour10;
+    private static BoutonPeriode4 boutonPeriode4Tour11;
+    private static BoutonPeriode5 boutonPeriode5Tour12;
+    private static BoutonPeriode5 boutonPeriode5Tour13;
+    private static BoutonPeriode6 boutonPeriode6Tour14;
 
     public InterfacePlateau() {
         try {
@@ -248,11 +260,11 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         boutonPeche.setBounds(570, 650, 190, 120);
         boutonPeche.setVisible(true);
         
-
+        
         //Bouton Piece Etable
         boutonPieceEtable = new BoutonPieceEtable("Piece Etable");
         boutonPieceEtable.createButton();
-        boutonPieceEtable.setBounds(240, 150, 190, 120);
+        boutonPieceEtable.setBounds(365, 25, 190, 120);
         boutonPieceEtable.setVisible(true);
 
         //Bouton Premier Joueur
@@ -272,23 +284,93 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         //Bouton Labourer
         boutonLabourer = new BoutonLabourer("Labourer");
         boutonLabourer.createButton();
-        boutonLabourer.setBounds(490, 275, 190, 120);
+        boutonLabourer.setBounds(365, 400, 190, 120);
         boutonLabourer.setVisible(true);
     
         //########################################
         //Bouton Etable Pain
-        boutonEtablePain = new BoutonEtablePain("Etable Pain");
-        boutonEtablePain.createButton();
-        boutonEtablePain.setBounds(365, 275, 190, 120);
-        boutonEtablePain.setVisible(true);
+        boutonEtableEtPain = new BoutonEtableEtPain("Etable Pain");
+        boutonEtableEtPain.createButton();
+        boutonEtableEtPain.setBounds(365, 525, 190, 120);
+        boutonEtableEtPain.setVisible(true);
     
         //########################################
         //Bouton Journalier
         boutonJournalier = new BoutonJournalier("Journalier");
         boutonJournalier.createButton();
-        boutonJournalier.setBounds(365, 275, 190, 120);
+        boutonJournalier.setBounds(365, 650, 190, 120);
         boutonJournalier.setVisible(true);
 
+        boutonPeriode1Tour1 = new BoutonPeriode1();
+        boutonPeriode1Tour1.createButton();
+        boutonPeriode1Tour1.setBounds(590, 35, 160, 240);
+        boutonPeriode1Tour1.setVisible(true);
+        
+        boutonPeriode1Tour2 = new BoutonPeriode1();
+        boutonPeriode1Tour2.createButton();
+        boutonPeriode1Tour2.setBounds(765, 35, 160, 240);
+        boutonPeriode1Tour2.setVisible(true);
+        
+        boutonPeriode1Tour3 = new BoutonPeriode1();
+        boutonPeriode1Tour3.createButton();
+        boutonPeriode1Tour3.setBounds(765, 275, 160, 240);
+        boutonPeriode1Tour3.setVisible(true);
+        
+        boutonPeriode1Tour4 = new BoutonPeriode1();
+        boutonPeriode1Tour4.createButton();
+        boutonPeriode1Tour4.setBounds(765, 515, 160, 240);
+        boutonPeriode1Tour4.setVisible(true);
+        
+        boutonPeriode2Tour5 = new BoutonPeriode2();
+        boutonPeriode2Tour5.createButton();
+        boutonPeriode2Tour5.setBounds(940, 35, 160, 240);
+        boutonPeriode2Tour5.setVisible(true);
+        
+        boutonPeriode2Tour6 = new BoutonPeriode2();
+        boutonPeriode2Tour6.createButton();
+        boutonPeriode2Tour6.setBounds(940, 275, 160, 240);
+        boutonPeriode2Tour6.setVisible(true);
+        
+        boutonPeriode2Tour7 = new BoutonPeriode2();
+        boutonPeriode2Tour7.createButton();
+        boutonPeriode2Tour7.setBounds(940, 515, 190, 240);
+        boutonPeriode2Tour7.setVisible(true);
+        
+        boutonPeriode3Tour8 = new BoutonPeriode3();
+        boutonPeriode3Tour8.createButton();
+        boutonPeriode3Tour8.setBounds(1120, 275, 160, 240);
+        boutonPeriode3Tour8.setVisible(true);
+        
+        boutonPeriode3Tour9 = new BoutonPeriode3();
+        boutonPeriode3Tour9.createButton();
+        boutonPeriode3Tour9.setBounds(1120, 515, 160, 240);
+        boutonPeriode3Tour9.setVisible(true);
+        
+        boutonPeriode4Tour10 = new BoutonPeriode4();
+        boutonPeriode4Tour10.createButton();
+        boutonPeriode4Tour10.setBounds(1295, 275, 160, 240);
+        boutonPeriode4Tour10.setVisible(true);
+        
+        boutonPeriode4Tour11 = new BoutonPeriode4();
+        boutonPeriode4Tour11.createButton();
+        boutonPeriode4Tour11.setBounds(1295, 515, 160, 240);
+        boutonPeriode4Tour11.setVisible(true);
+        
+        boutonPeriode5Tour12 = new BoutonPeriode5();
+        boutonPeriode5Tour12.createButton();
+        boutonPeriode5Tour12.setBounds(1470, 275, 160, 240);
+        boutonPeriode5Tour12.setVisible(true);
+        
+        boutonPeriode5Tour13 = new BoutonPeriode5();
+        boutonPeriode5Tour13.createButton();
+        boutonPeriode5Tour13.setBounds(1470, 515, 160, 240);
+        boutonPeriode5Tour13.setVisible(true);
+        
+        boutonPeriode6Tour14 = new BoutonPeriode6();
+        boutonPeriode6Tour14.createButton();
+        boutonPeriode6Tour14.setBounds(1645, 275, 160, 240);
+        boutonPeriode6Tour14.setVisible(true);
+        
 
         //fenetre principale
         plateau = new InterfacePlateau();
@@ -323,9 +405,25 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         plateau.add(boutonPremierJoueur);
         plateau.add(bouton1Cereale);
         plateau.add(boutonLabourer);
-        plateau.add(boutonEtablePain);
+        plateau.add(boutonEtableEtPain);
         plateau.add(boutonJournalier);
 
+        
+        plateau.add(boutonPeriode1Tour1);
+        plateau.add(boutonPeriode1Tour2);
+        plateau.add(boutonPeriode1Tour3);
+        plateau.add(boutonPeriode1Tour4);
+        plateau.add(boutonPeriode2Tour5);
+        plateau.add(boutonPeriode2Tour6);
+        plateau.add(boutonPeriode2Tour7);
+        plateau.add(boutonPeriode3Tour8);
+        plateau.add(boutonPeriode3Tour9);
+        plateau.add(boutonPeriode4Tour10);
+        plateau.add(boutonPeriode4Tour11);
+        plateau.add(boutonPeriode5Tour12);
+        plateau.add(boutonPeriode5Tour13);
+        plateau.add(boutonPeriode6Tour14);
+    
         //plateau.add(bb);
 
 

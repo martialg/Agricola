@@ -3,24 +3,17 @@ package interfaceGraphique;
 import agricola.Agricola;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import plateau.action.ActionPeche;
 
-public class BoutonPeche extends JButton implements ActionListener{
+public class BoutonPeche extends BoutonAction implements ActionListener{
     private ActionPeche action;
 
     public BoutonPeche(String nom){
         super();
+        this.setName(nom);
         action = new ActionPeche();
         addActionListener(this);
-    }
-    
-    
-    protected void createButton() {
-        this.setFocusPainted(true);
-        this.setBorderPainted(true);
-        this.setContentAreaFilled(false);
     }
     
     @Override
