@@ -53,11 +53,7 @@ public class InterfacePlateauJoueur extends JPanel implements MouseListener, Act
         fenetre.setVisible(false);
     }
     
-    public void intialisationNbPion(){
-        pions = new ArrayList<GradientCircularButton>();
-        pions.add(new GradientCircularButton("Joueur",new Color(0xDC3333)));
-        pions.add(new GradientCircularButton("Joueur",new Color(0xDC3333)));
-    }
+    
     
     public void affichePions(){
         
