@@ -12,6 +12,13 @@ public class Joueur {
     private Ressource ressources;
     private CarteJoueur cartes;
     
+    public Couleur getCouleur(){
+        return this.couleur;
+    }
+    
+    public String getNom(){
+        return this.nom;
+    }
 
     public Joueur(String nom, Couleur couleur){
         this.nom = nom;

@@ -12,6 +12,7 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -19,11 +20,18 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import joueur.Couleur;
 import joueur.Joueur;
 import plateau.action.Action3Bois;
 
-public class InterfacePlateau extends JPanel implements MouseListener, ActionListener {
+public class InterfacePlateau extends JPanel implements ActionListener {
 
+    private static ArrayList<InterfacePlateauJoueur> listeplateau;
+    private static InterfacePlateauJoueur interface_joueur1;
+    private static InterfacePlateauJoueur interface_joueur2;
+    private static InterfacePlateauJoueur interface_joueur3;
+    private static InterfacePlateauJoueur interface_joueur4;
+    private static InterfacePlateauJoueur interface_joueur5;
     private static JFrame fenetre;
     private static BufferedImage background;
     private static InterfacePlateau plateau;
@@ -75,7 +83,7 @@ public class InterfacePlateau extends JPanel implements MouseListener, ActionLis
         fenetre.setResizable(true);
         fenetre.setLocationRelativeTo(fenetre.getParent());
         fenetre.setVisible(true);
-
+        listeplateau = new ArrayList<InterfacePlateauJoueur>();
     }
 
     public static void affichage() throws IOException {
@@ -157,29 +165,29 @@ public class InterfacePlateau extends JPanel implements MouseListener, ActionLis
         //Label choix des joueurs
         Image im_lab;
         im_lab = ImageIO.read(new File("images/label-background.png"));
-        label_choix_joueur = new JLabel("Choix des Joueurs");
+        label_choix_joueur = new JLabel("Affichage des plateaux des joueurs");
         label_choix_joueur.setIcon(new ImageIcon(im_lab));
         label_choix_joueur.setFont(new Font("Matura MT Script Capitals", Font.ROMAN_BASELINE, 20));
         Color c = new Color(0x643E1D);
         label_choix_joueur.setHorizontalTextPosition(JLabel.CENTER);
         label_choix_joueur.setVerticalTextPosition(JLabel.CENTER);
         label_choix_joueur.setForeground(c);
-        label_choix_joueur.setBounds(130, 145, 400, 40);
-        label_choix_joueur.setVisible(false);
+        label_choix_joueur.setBounds(1300, 20, 400, 40);
+        label_choix_joueur.setVisible(true);
 
         //bouton rouge
         couleur_rouge_over = new Color(0xDC3333);
         couleur_rouge_pressed = new Color(0x8A1919);
         joueur_rouge = new GradientCircularButton("Joueur 1", couleur_rouge_over, couleur_rouge_pressed);
         joueur_rouge.setVisible(false);
-        joueur_rouge.setBounds(1600, 50, 100, 100);
+        joueur_rouge.setBounds(1400, 50, 100, 100);
 
         //bouton vert
         couleur_vert_over = new Color(0x08C701);
         couleur_vert_pressed = new Color(0x048100);
         joueur_vert = new GradientCircularButton("Joueur 2", couleur_vert_over, couleur_vert_pressed);
         joueur_vert.setVisible(false);
-        joueur_vert.setBounds(150, 200, 100, 100);
+        joueur_vert.setBounds(1500, 60, 100, 100);
 
         //bouton bleu
         couleur_bleu_over = new Color(0x006FFF);
@@ -201,7 +209,6 @@ public class InterfacePlateau extends JPanel implements MouseListener, ActionLis
         joueur_naturel = new GradientCircularButton("Joueur 5", couleur_naturel_over, couleur_naturel_pressed);
         joueur_naturel.setVisible(false);
         joueur_naturel.setBounds(510, 200, 100, 100);
-        
         
         
         //########################################
@@ -239,7 +246,8 @@ public class InterfacePlateau extends JPanel implements MouseListener, ActionLis
         plateau.add(carte_tournee_12);
         plateau.add(carte_tournee_13);
         plateau.add(carte_tournee_14);
-
+        
+        plateau.add(label_choix_joueur);
         
         plateau.add(boutonPremierJoueur);
         plateau.add(bouton1Cereale);
@@ -247,14 +255,29 @@ public class InterfacePlateau extends JPanel implements MouseListener, ActionLis
         
         //plateau.add(bb);
 
-        //bouton_joueur.addActionListener(plateau);
         
+        afficheBoutonJoueurPresent();
         
     }
     
     public static void afficheBoutonJoueurPresent(){
         for(Joueur joueur : Agricola.getJoueurs()){
             
+            if(joueur.getCouleur()==Couleur.ROUGE){
+                interface_joueur1 = new InterfacePlateauJoueur(joueur);
+                listeplateau.add(interface_joueur1);
+                plateau.add(joueur_rouge);
+                joueur_rouge.addActionListener(plateau);
+                joueur_rouge.setVisible(true);
+                
+            }
+            if(joueur.getCouleur()==Couleur.VERT){
+                interface_joueur2 = new InterfacePlateauJoueur(joueur);
+                listeplateau.add(interface_joueur2);
+                plateau.add(joueur_vert);
+                joueur_vert.addActionListener(plateau);
+                joueur_vert.setVisible(true);
+            }
         }
     }
 
@@ -270,32 +293,15 @@ public class InterfacePlateau extends JPanel implements MouseListener, ActionLis
         int fin = action.indexOf(",defaultCapable=");
         String action_name = action.substring(debut, fin);
         switch (action_name) {
-            case "Fermer":
-                break;
+            case "Joueur 1":
+                InterfacePlateauJoueur.affichage();
+            break;
+            case "Joueur 2":
+                InterfacePlateauJoueur.affichage();
+            break;
         }
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-    }
-
-    
 
     @Override
     public void paintComponent(Graphics g) {
