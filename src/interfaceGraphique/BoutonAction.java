@@ -3,6 +3,7 @@ package interfaceGraphique;
 import agricola.Agricola;
 import java.awt.Color;
 import javax.swing.JButton;
+import joueur.Joueur;
 
 public class BoutonAction extends JButton {
 
@@ -24,8 +25,12 @@ public class BoutonAction extends JButton {
         gci.setBounds(x + 50, y + 10, 100, 100);
         InterfacePlateau.getFrame().add(gci);
     }
-    
-    protected void passeLaMain(){
+
+    protected void passeLaMain() {
         Agricola.joueurSuivant();
+        InterfacePlateau.afficheBoutonJoueurPresent();
+        InterfacePlateau.getFrame().revalidate();
+        InterfacePlateau.getFrame().repaint();
+        //InterfacePlateau.repaint(InterfacePlateau.getGraphics());
     }
 }

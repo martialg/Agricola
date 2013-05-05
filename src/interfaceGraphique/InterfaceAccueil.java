@@ -357,11 +357,8 @@ public class InterfaceAccueil extends JPanel implements ActionListener {
                 joueur_naturel.setColor(couleur_naturel_over);
                 break;
             case "Lancer":
+                
                 if ((joueur1ajoute == true) && (joueur2ajoute == true)) {
-                    joueur1 = new Joueur("Joueur 1", Couleur.ROUGE);
-                    Agricola.ajouterJoueur(joueur1);
-                    joueur2 = new Joueur("Joueur 2", Couleur.VERT);
-                    Agricola.ajouterJoueur(joueur2);
                     if ((joueur5ajoute == true) && (joueur4ajoute == false) && (joueur3ajoute == false)) {
                         JOptionPane.showMessageDialog(null, "Veuillez seléctionner les Joueurs dans l'ordre proposé", "Attention", 1);
                         break;
@@ -378,6 +375,11 @@ public class InterfaceAccueil extends JPanel implements ActionListener {
                         JOptionPane.showMessageDialog(null, "Veuillez seléctionner les Joueurs dans l'ordre proposé", "Attention", 1);
                         break;
                     }
+                    joueur1 = new Joueur("Joueur 1", Couleur.ROUGE);
+                    Agricola.ajouterJoueur(joueur1);
+                    joueur2 = new Joueur("Joueur 2", Couleur.VERT);
+                    Agricola.ajouterJoueur(joueur2);
+                    
                     if (joueur3ajoute == true) {
                         joueur3 = new Joueur("Joueur 3", Couleur.BLEU);
                         Agricola.ajouterJoueur(joueur3);

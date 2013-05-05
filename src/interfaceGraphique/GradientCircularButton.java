@@ -23,6 +23,14 @@ public class GradientCircularButton extends JButton {
     public void setColorGris(){
         this.color = new Color(0xABABAB);
     }
+    
+    public void setColorCurrent(Color c){
+        this.color = c;
+    }
+    
+    public GradientCircularButton getGradientCircularButton(){
+        return this;
+    }
 
     public GradientCircularButton(String s, Color over_color, Color pressed_color) {
         super();

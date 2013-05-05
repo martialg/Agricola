@@ -73,7 +73,6 @@ public class InterfacePlateau extends JPanel implements ActionListener {
     private static BoutonLabourer boutonLabourer;
     private static BoutonEtableEtPain boutonEtableEtPain;
     private static BoutonJournalier boutonJournalier;
-    
     private static BoutonPeriode1 boutonPeriode1Tour1;
     private static BoutonPeriode1 boutonPeriode1Tour2;
     private static BoutonPeriode1 boutonPeriode1Tour3;
@@ -89,10 +88,10 @@ public class InterfacePlateau extends JPanel implements ActionListener {
     private static BoutonPeriode5 boutonPeriode5Tour13;
     private static BoutonPeriode6 boutonPeriode6Tour14;
 
-    public static JFrame getFrame(){
+    public static JFrame getFrame() {
         return fenetre;
     }
-    
+
     public InterfacePlateau() {
         try {
             background = ImageIO.read(new File("images/plateau2.png"));
@@ -103,7 +102,7 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fenetre.setSize(1910, 829);
         fenetre.setContentPane(this);
-        
+
         this.setLayout(null);
         Color c1 = new Color(0xC96D1C);
         fenetre.getContentPane().setBackground(c1);
@@ -309,77 +308,77 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         boutonJournalier.setVisible(true);
 
         ArrayList<Periode> liste_periode = Agricola.getPlateau().getPeriodes();
-        
+
         boutonPeriode1Tour1 = new BoutonPeriode1(liste_periode.get(0).getTour(0).getAction());
         boutonPeriode1Tour1.createButton();
         boutonPeriode1Tour1.setBounds(590, 35, 160, 240);
         boutonPeriode1Tour1.setVisible(true);
-        
+
         boutonPeriode1Tour2 = new BoutonPeriode1(liste_periode.get(0).getTour(1).getAction());
         boutonPeriode1Tour2.createButton();
         boutonPeriode1Tour2.setBounds(765, 35, 160, 240);
         boutonPeriode1Tour2.setVisible(true);
-        
+
         boutonPeriode1Tour3 = new BoutonPeriode1(liste_periode.get(0).getTour(2).getAction());
         boutonPeriode1Tour3.createButton();
         boutonPeriode1Tour3.setBounds(765, 275, 160, 240);
         boutonPeriode1Tour3.setVisible(true);
-        
+
         boutonPeriode1Tour4 = new BoutonPeriode1(liste_periode.get(0).getTour(3).getAction());
         boutonPeriode1Tour4.createButton();
         boutonPeriode1Tour4.setBounds(765, 515, 160, 240);
         boutonPeriode1Tour4.setVisible(true);
-        
+
         boutonPeriode2Tour5 = new BoutonPeriode2(liste_periode.get(1).getTour(0).getAction());
         boutonPeriode2Tour5.createButton();
         boutonPeriode2Tour5.setBounds(940, 35, 160, 240);
         boutonPeriode2Tour5.setVisible(true);
-        
+
         boutonPeriode2Tour6 = new BoutonPeriode2(liste_periode.get(1).getTour(1).getAction());
         boutonPeriode2Tour6.createButton();
         boutonPeriode2Tour6.setBounds(940, 275, 160, 240);
         boutonPeriode2Tour6.setVisible(true);
-        
+
         boutonPeriode2Tour7 = new BoutonPeriode2(liste_periode.get(1).getTour(2).getAction());
         boutonPeriode2Tour7.createButton();
         boutonPeriode2Tour7.setBounds(940, 515, 190, 240);
         boutonPeriode2Tour7.setVisible(true);
-        
+
         boutonPeriode3Tour8 = new BoutonPeriode3(liste_periode.get(2).getTour(0).getAction());
         boutonPeriode3Tour8.createButton();
         boutonPeriode3Tour8.setBounds(1120, 275, 160, 240);
         boutonPeriode3Tour8.setVisible(true);
-        
+
         boutonPeriode3Tour9 = new BoutonPeriode3(liste_periode.get(2).getTour(1).getAction());
         boutonPeriode3Tour9.createButton();
         boutonPeriode3Tour9.setBounds(1120, 515, 160, 240);
         boutonPeriode3Tour9.setVisible(true);
-        
+
         boutonPeriode4Tour10 = new BoutonPeriode4(liste_periode.get(3).getTour(0).getAction());
         boutonPeriode4Tour10.createButton();
         boutonPeriode4Tour10.setBounds(1295, 275, 160, 240);
         boutonPeriode4Tour10.setVisible(true);
-        
+
         boutonPeriode4Tour11 = new BoutonPeriode4(liste_periode.get(3).getTour(1).getAction());
         boutonPeriode4Tour11.createButton();
         boutonPeriode4Tour11.setBounds(1295, 515, 160, 240);
         boutonPeriode4Tour11.setVisible(true);
-        
+
         boutonPeriode5Tour12 = new BoutonPeriode5(liste_periode.get(4).getTour(0).getAction());
         boutonPeriode5Tour12.createButton();
         boutonPeriode5Tour12.setBounds(1470, 275, 160, 240);
         boutonPeriode5Tour12.setVisible(true);
-        
+
         boutonPeriode5Tour13 = new BoutonPeriode5(liste_periode.get(4).getTour(1).getAction());
         boutonPeriode5Tour13.createButton();
         boutonPeriode5Tour13.setBounds(1470, 515, 160, 240);
         boutonPeriode5Tour13.setVisible(true);
-        
+
         boutonPeriode6Tour14 = new BoutonPeriode6(liste_periode.get(5).getTour(0).getAction());
         boutonPeriode6Tour14.createButton();
         boutonPeriode6Tour14.setBounds(1645, 275, 160, 240);
         boutonPeriode6Tour14.setVisible(true);
-        
+
 
         //fenetre principale
         plateau = new InterfacePlateau();
@@ -417,7 +416,7 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         plateau.add(boutonEtableEtPain);
         plateau.add(boutonJournalier);
 
-        
+
         plateau.add(boutonPeriode1Tour1);
         plateau.add(boutonPeriode1Tour2);
         plateau.add(boutonPeriode1Tour3);
@@ -432,7 +431,7 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         plateau.add(boutonPeriode5Tour12);
         plateau.add(boutonPeriode5Tour13);
         plateau.add(boutonPeriode6Tour14);
-    
+
         //plateau.add(bb);
 
 
@@ -446,6 +445,11 @@ public class InterfacePlateau extends JPanel implements ActionListener {
                 interface_joueur1 = new InterfacePlateauJoueur(joueur, couleur_rouge_over);
                 listeplateau.add(interface_joueur1);
                 plateau.add(joueur_rouge);
+                if (Agricola.getJoueurCourant() == joueur) {
+                    joueur_rouge.setColorCurrent(couleur_rouge_over);
+                }else{
+                    joueur_rouge.setColorGris();
+                }
                 joueur_rouge.setVisible(true);
                 joueur_rouge.addActionListener(plateau);
             }
@@ -453,6 +457,11 @@ public class InterfacePlateau extends JPanel implements ActionListener {
                 interface_joueur2 = new InterfacePlateauJoueur(joueur, couleur_vert_over);
                 listeplateau.add(interface_joueur2);
                 plateau.add(joueur_vert);
+                if (Agricola.getJoueurCourant() == joueur) {
+                    joueur_vert.setColorCurrent(couleur_vert_over);
+                }else{
+                    joueur_vert.setColorGris();
+                }
                 joueur_vert.setVisible(true);
                 joueur_vert.addActionListener(plateau);
             }
@@ -460,6 +469,11 @@ public class InterfacePlateau extends JPanel implements ActionListener {
                 interface_joueur3 = new InterfacePlateauJoueur(joueur, couleur_bleu_over);
                 listeplateau.add(interface_joueur1);
                 plateau.add(joueur_bleu);
+                if (Agricola.getJoueurCourant() == joueur) {
+                    joueur_bleu.setColorCurrent(couleur_bleu_over);
+                }else{
+                    joueur_bleu.setColorGris();
+                }
                 joueur_bleu.setVisible(true);
                 joueur_bleu.addActionListener(plateau);
             }
@@ -467,6 +481,11 @@ public class InterfacePlateau extends JPanel implements ActionListener {
                 interface_joueur4 = new InterfacePlateauJoueur(joueur, couleur_violet_over);
                 listeplateau.add(interface_joueur2);
                 plateau.add(joueur_violet);
+                if (Agricola.getJoueurCourant() == joueur) {
+                    joueur_violet.setColorCurrent(couleur_violet_over);
+                }else{
+                    joueur_violet.setColorGris();
+                }
                 joueur_violet.setVisible(true);
                 joueur_violet.addActionListener(plateau);
             }
@@ -474,6 +493,11 @@ public class InterfacePlateau extends JPanel implements ActionListener {
                 interface_joueur5 = new InterfacePlateauJoueur(joueur, couleur_naturel_over);
                 listeplateau.add(interface_joueur2);
                 plateau.add(joueur_naturel);
+                if (Agricola.getJoueurCourant() == joueur) {
+                    joueur_naturel.setColorCurrent(couleur_naturel_over);
+                }else{
+                    joueur_naturel.setColorGris();
+                }
                 joueur_naturel.setVisible(true);
                 joueur_naturel.addActionListener(plateau);
             }
@@ -483,7 +507,7 @@ public class InterfacePlateau extends JPanel implements ActionListener {
     public static void start() throws IOException {
         Agricola.premierTour();
         InterfacePlateau.affichage();
-        
+
     }
 
     @Override
@@ -514,9 +538,9 @@ public class InterfacePlateau extends JPanel implements ActionListener {
                 interface_joueur5.setVisibleTrue();
                 interface_joueur5.affichage();
                 break;
-            
+
         }
-        
+
     }
 
     @Override
@@ -526,6 +550,4 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         int y = (getHeight() - background.getHeight()) / 2;
         g.drawImage(background, x, y, this);
     }
-    
-    
 }
