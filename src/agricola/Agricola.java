@@ -89,12 +89,13 @@ public class Agricola {
     public static void joueurSuivant(){
         int place = joueurs.indexOf(joueur_courant);
         place++;
-        if(joueurs.size() == place+1){
+        if(joueurs.size() == place){
             joueur_courant = joueurs.get(0);
         }else{
             joueur_courant = joueurs.get(place);
         }
     }
+    
     
     public static void premierTour(){
         System.out.println(premier_joueur);

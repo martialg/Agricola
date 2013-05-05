@@ -8,11 +8,11 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.JButton;
 
-public class BoutonBois extends JButton {
+public class PionBois extends JButton {
     private int size;
     private Color color;
 
-    public BoutonBois() {
+    public PionBois() {
         super();
         this.color = new Color(0x7C3C00);
         setContentAreaFilled(false);

@@ -1,26 +1,30 @@
 package interfaceGraphique;
 
 import agricola.Agricola;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import plateau.action.Action1Roseau;
 
-public class Bouton1Roseau extends BoutonAction implements ActionListener{
+public class Bouton1Roseau extends BoutonAction implements ActionListener {
+
     private Action1Roseau action;
 
-    public Bouton1Roseau(String nom){
+    public Bouton1Roseau(String nom) {
         super();
         this.setName(nom);
         action = new Action1Roseau();
         addActionListener(this);
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        int result = JOptionPane.showConfirmDialog(null, "Voulez vous prendre " +this.action.getQuantiteCumulee() + " roseau ?"); 
-        if(result == 0)
+        int result = JOptionPane.showConfirmDialog(null, "Voulez vous prendre " + this.action.getQuantiteCumulee() + " roseau ?");
+        if (result == 0) {
             this.action.action(Agricola.getJoueurCourant());
+            this.ajoutBouton();
+            this.passeLaMain();
+        }
     }
-    
 }

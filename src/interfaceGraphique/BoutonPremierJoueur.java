@@ -1,6 +1,7 @@
 package interfaceGraphique;
 
 import agricola.Agricola;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -22,6 +23,7 @@ public class BoutonPremierJoueur extends BoutonAction implements ActionListener{
         // oui = 0, non = 1 annuler = 2
         if(result == 0){
             action.action(Agricola.getJoueurCourant());
+            this.ajoutBouton();
         }
     }
     
