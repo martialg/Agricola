@@ -12,10 +12,10 @@ public class BoutonJournalier extends BoutonAction implements ActionListener {
 
     private ActionJournalier action;
 
-    public BoutonJournalier(String nom) {
+    public BoutonJournalier(String nom, ActionJournalier action) {
         super();
         this.setName(nom);
-        action = new ActionJournalier();
+        this.action = action;
         addActionListener(this);
     }
 

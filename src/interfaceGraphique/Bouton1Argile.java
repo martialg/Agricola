@@ -11,10 +11,10 @@ public class Bouton1Argile extends BoutonAction implements ActionListener {
 
     private Action1Argile action;
 
-    public Bouton1Argile(String nom) {
+    public Bouton1Argile(String nom, Action1Argile action) {
         super();
         this.setName(nom);
-        action = new Action1Argile();
+        this.action = action;
         addActionListener(this);
     }
 

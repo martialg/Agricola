@@ -7,10 +7,10 @@ import plateau.action.ActionLabourer;
 public class BoutonLabourer extends BoutonAction implements ActionListener{
     private ActionLabourer action;
 
-    public BoutonLabourer(String nom){
+    public BoutonLabourer(String nom, ActionLabourer action){
         super();
         this.setName(nom);
-        action = new ActionLabourer();
+        this.action = action;
         addActionListener(this);
     }
     

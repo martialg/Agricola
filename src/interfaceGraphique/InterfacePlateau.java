@@ -21,6 +21,17 @@ import javax.swing.JPanel;
 import joueur.Couleur;
 import joueur.Joueur;
 import plateau.Periode;
+import plateau.action.Action1Argile;
+import plateau.action.Action1Cereale;
+import plateau.action.Action1Roseau;
+import plateau.action.Action3Bois;
+import plateau.action.ActionEtablePain;
+import plateau.action.ActionJournalier;
+import plateau.action.ActionLabourer;
+import plateau.action.ActionPeche;
+import plateau.action.ActionPieceEtable;
+import plateau.action.ActionPremierJoueur;
+import plateau.action.CaseAction;
 
 public class InterfacePlateau extends JPanel implements ActionListener {
 
@@ -238,56 +249,58 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         joueur_naturel.setBounds(1700, 90, 100, 100);
 
 
+        ArrayList<CaseAction> actions = Agricola.getPlateau().getActions_Fixes();
+     
         //########################################
         //Bouton 3 Bois
-        bouton3Bois = new Bouton3Bois("3 Bois");
+        bouton3Bois = new Bouton3Bois("3 Bois", (Action3Bois)(actions.get(6)));
         bouton3Bois.createButton();
         bouton3Bois.setBounds(570, 275, 190, 120);
         bouton3Bois.setVisible(true);
 
         //########################################
         //Bouton 1 Argile
-        bouton1Argile = new Bouton1Argile("1 Argile");
+        bouton1Argile = new Bouton1Argile("1 Argile", (Action1Argile)(actions.get(7)));
         bouton1Argile.createButton();
         bouton1Argile.setBounds(570, 400, 190, 120);
         bouton1Argile.setVisible(true);
 
         //########################################
         //Bouton 1 Roseau
-        bouton1Roseau = new Bouton1Roseau("1 Roseau");
+        bouton1Roseau = new Bouton1Roseau("1 Roseau", (Action1Roseau)(actions.get(8)));
         bouton1Roseau.createButton();
         bouton1Roseau.setBounds(570, 525, 190, 120);
         bouton1Roseau.setVisible(true);
 
         //########################################
         //Bouton 1 Roseau
-        boutonPeche = new BoutonPeche("1 Peche");
+        boutonPeche = new BoutonPeche("1 Peche", (ActionPeche)(actions.get(9)));
         boutonPeche.createButton();
         boutonPeche.setBounds(570, 650, 190, 120);
         boutonPeche.setVisible(true);
 
         //Bouton Piece Etable
-        boutonPieceEtable = new BoutonPieceEtable("Piece Etable");
+        boutonPieceEtable = new BoutonPieceEtable("Piece Etable", (ActionPieceEtable)(actions.get(0)));
         boutonPieceEtable.createButton();
         boutonPieceEtable.setBounds(365, 25, 190, 120);
         boutonPieceEtable.setVisible(true);
 
         //Bouton Premier Joueur
-        boutonPremierJoueur = new BoutonPremierJoueur("Premier Joueur");
+        boutonPremierJoueur = new BoutonPremierJoueur("Premier Joueur", (ActionPremierJoueur)(actions.get(1)));
         boutonPremierJoueur.createButton();
         boutonPremierJoueur.setBounds(365, 150, 190, 120);
         boutonPremierJoueur.setVisible(true);
 
         //########################################
         //Bouton 1 Cereale
-        bouton1Cereale = new Bouton1Cereale("1 Céréale");
+        bouton1Cereale = new Bouton1Cereale("1 Céréale", (Action1Cereale)(actions.get(2)));
         bouton1Cereale.createButton();
         bouton1Cereale.setBounds(365, 275, 190, 120);
         bouton1Cereale.setVisible(true);
 
         //########################################
         //Bouton Labourer
-        boutonLabourer = new BoutonLabourer("Labourer");
+        boutonLabourer = new BoutonLabourer("Labourer", (ActionLabourer)(actions.get(3)));
         boutonLabourer.createButton();
         boutonLabourer.setBounds(365, 400, 190, 120);
         boutonLabourer.setVisible(true);
@@ -295,7 +308,7 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         //########################################
         //Bouton Etable Pain
 
-        boutonEtableEtPain = new BoutonEtableEtPain("Etable Pain");
+        boutonEtableEtPain = new BoutonEtableEtPain("Etable Pain", (ActionEtablePain)(actions.get(4)));
         boutonEtableEtPain.createButton();
         boutonEtableEtPain.setBounds(365, 525, 190, 120);
         boutonEtableEtPain.setVisible(true);
@@ -303,7 +316,7 @@ public class InterfacePlateau extends JPanel implements ActionListener {
 
         //########################################
         //Bouton Journalier
-        boutonJournalier = new BoutonJournalier("Journalier");
+        boutonJournalier = new BoutonJournalier("Journalier", (ActionJournalier)(actions.get(5)));
         boutonJournalier.createButton();
         boutonJournalier.setBounds(365, 650, 190, 120);
         boutonJournalier.setVisible(true);
@@ -438,6 +451,7 @@ public class InterfacePlateau extends JPanel implements ActionListener {
 
         afficheBoutonJoueurPresent();
 
+        Agricola.debutDeTour();
     }
 
     public static void afficheBoutonJoueurPresent() {
@@ -481,9 +495,7 @@ public class InterfacePlateau extends JPanel implements ActionListener {
     }
 
     public static void start() throws IOException {
-        Agricola.premierTour();
         InterfacePlateau.affichage();
-        
     }
 
     @Override
@@ -525,6 +537,12 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         int x = (getWidth() - background.getWidth()) / 2;
         int y = (getHeight() - background.getHeight()) / 2;
         g.drawImage(background, x, y, this);
+    }
+    
+    public static void debutTour(){
+        //retourner la carte
+        //bloquer toutes les périodes non retournées
+        
     }
     
     

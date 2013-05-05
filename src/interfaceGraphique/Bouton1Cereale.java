@@ -9,10 +9,10 @@ import java.awt.event.ActionListener;
 public class Bouton1Cereale extends BoutonAction implements ActionListener{
     private Action1Cereale action;
     
-    public Bouton1Cereale(String nom){
+    public Bouton1Cereale(String nom, Action1Cereale action){
         super();
         this.setName(nom);
-        action = new Action1Cereale();
+        this.action = action;
         addActionListener(this);
     }
 

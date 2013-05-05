@@ -11,10 +11,10 @@ public class Bouton3Bois extends BoutonAction implements ActionListener {
 
     private Action3Bois action;
 
-    public Bouton3Bois(String nom) {
+    public Bouton3Bois(String nom, Action3Bois action) {
         super();
         this.setName(nom);
-        action = new Action3Bois();
+        this.action = action;
         addActionListener(this);
     }
 

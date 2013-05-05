@@ -12,10 +12,10 @@ import plateau.action.ActionEtablePain;
 class BoutonEtableEtPain extends BoutonAction implements ActionListener{
     private ActionEtablePain action;
 
-    public BoutonEtableEtPain(String nom){
+    public BoutonEtableEtPain(String nom, ActionEtablePain action){
         super();
         this.setName(nom);
-        action = new ActionEtablePain();
+        this.action = action;
         addActionListener(this);
     }
     

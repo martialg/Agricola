@@ -77,13 +77,14 @@ public class Agricola {
     
     public static void debutDeTour(){
         joueur_courant = premier_joueur;
-        ArrayList<Tour> temp_tours = periode_courante.getTours();
+        reaprovisionnerCases();
+        /*ArrayList<Tour> temp_tours = periode_courante.getTours();
         if(temp_tours.size() - 1 > temp_tours.indexOf(tour_courant)){
             tour_courant = temp_tours.get(temp_tours.indexOf(tour_courant) + 1);
         }else{
             periode_courante = plateau.getPeriodeSuivante(periode_courante);
             tour_courant = periode_courante.getTour(0);
-        }
+        }*/
     }
     
     public static void joueurSuivant(){
@@ -96,34 +97,28 @@ public class Agricola {
         }
     }
     
-    
-    public static void premierTour(){
-        System.out.println(premier_joueur);
-        joueur_courant = premier_joueur;
-    }
-    
     public static void finDeTour(){
         if(tour_courant.getNumero() == 4 || tour_courant.getNumero() == 7 || tour_courant.getNumero() == 9 
                 || tour_courant.getNumero() == 11 || tour_courant.getNumero() == 13){
             //fin de periode
             //nourrir pour chaque joueur
             
-            reaprovisionnerCases();
         }else if(tour_courant.getNumero() == 14){
             
             //fin de partie
         }else{
-            //fin de tour normal
-            reaprovisionnerCases();
+            //fin de tour normal();
             
         }
     }
     
     public static void reaprovisionnerCases(){
         ArrayList<CaseAction> liste = new ArrayList<CaseAction>(plateau.getActions_Fixes());
-        for(CaseAction ca : liste)
-            if(ca instanceof RessourceCumulable)
+        for(CaseAction ca : liste){
+            if(ca instanceof RessourceCumulable){
                     ((RessourceCumulable)ca).debutTour();
+            }
+        }
         ArrayList<Periode> liste_periodes = plateau.getPeriodes();
         Periode periode_temp;
         Tour tour_temp;

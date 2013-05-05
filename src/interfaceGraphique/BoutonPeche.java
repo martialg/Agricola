@@ -11,10 +11,10 @@ public class BoutonPeche extends BoutonAction implements ActionListener {
 
     private ActionPeche action;
 
-    public BoutonPeche(String nom) {
+    public BoutonPeche(String nom, ActionPeche action) {
         super();
         this.setName(nom);
-        action = new ActionPeche();
+        this.action = action;
         addActionListener(this);
     }
 

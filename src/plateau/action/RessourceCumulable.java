@@ -10,7 +10,9 @@ public abstract class RessourceCumulable extends CaseAction{
     }
     
     public void debutTour(){
-        quantite_cumulee += multiplicateur;
+        System.out.println(this.quantite_cumulee + " " + this.multiplicateur + " " + this);
+        this.quantite_cumulee += this.multiplicateur;
+        System.out.println(this.quantite_cumulee);
     }
     
     public int getQuantiteCumulee(){
