@@ -25,6 +25,7 @@ public class InterfacePlateauJoueur extends JPanel implements MouseListener, Act
     private static InterfacePlateauJoueur plateau_joueur;
     private static ArrayList<GradientCircularButton> pions;
     private static Joueur joueur;
+    
 
     public InterfacePlateauJoueur() {
         try {
@@ -58,10 +59,13 @@ public class InterfacePlateauJoueur extends JPanel implements MouseListener, Act
         
         
         
+        
         //fenetre principale
         plateau_joueur = new InterfacePlateauJoueur();
         plateau_joueur.setOpaque(true);
         plateau_joueur.setLayout(null);
+        
+        
     }
 
     public static void start() throws IOException {

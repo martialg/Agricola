@@ -356,8 +356,12 @@ public class InterfaceAccueil extends JPanel implements ActionListener {
                 //System.out.println(Agricola.getJoueurs());
                 if(Agricola.getJoueurs().size()>=2){
                     fenetre.dispose();
-                    InterfacePlateau.affichage();
-                    
+            try {
+                InterfacePlateau.affichage();
+                //InterfacePlateauJoueur.affichage();
+            } catch (IOException ex) {
+                Logger.getLogger(InterfaceAccueil.class.getName()).log(Level.SEVERE, null, ex);
+            }
                 }else{
                     JOptionPane.showMessageDialog(null,"Veuillez saisir au minimum 2 Joueurs", "Attention", 1);
                 }
