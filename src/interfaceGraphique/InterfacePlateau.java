@@ -65,12 +65,17 @@ public class InterfacePlateau extends JPanel implements ActionListener {
     private static Color couleur_violet_pressed;
     private static Color couleur_naturel_over;
     private static Color couleur_naturel_pressed;
+    
     private static Bouton3Bois bouton3Bois;
     private static Bouton1Argile bouton1Argile;
     private static Bouton1Roseau bouton1Roseau;
     private static BoutonPeche boutonPeche;
-    private static Bouton1Cereale bouton1Cereale;
+    private static BoutonPieceEtable boutonPieceEtable;
     private static BoutonPremierJoueur boutonPremierJoueur;
+    private static Bouton1Cereale bouton1Cereale;
+    private static BoutonLabourer boutonLabourer;
+    private static boutonEtablePain boutonEtablePain;
+    private static BoutonJournalier boutonJournalier;
 
     public InterfacePlateau() {
         try {
@@ -219,43 +224,70 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         //Bouton 3 Bois
         bouton3Bois = new Bouton3Bois("3 Bois");
         bouton3Bois.createButton();
-        bouton3Bois.setBounds(360, 280, 200, 120);
+        bouton3Bois.setBounds(570, 275, 190, 120);
         bouton3Bois.setVisible(true);
         
         //########################################
         //Bouton 1 Argile
         bouton1Argile = new Bouton1Argile("1 Argile");
         bouton1Argile.createButton();
-        bouton1Argile.setBounds(360, 280, 180, 120);
+        bouton1Argile.setBounds(570, 400, 190, 120);
         bouton1Argile.setVisible(true);
         
         //########################################
         //Bouton 1 Roseau
         bouton1Roseau = new Bouton1Roseau("1 Roseau");
         bouton1Roseau.createButton();
-        bouton1Roseau.setBounds(360, 280, 180, 120);
+        bouton1Roseau.setBounds(570, 525, 190, 120);
         bouton1Roseau.setVisible(true);
         
         //########################################
         //Bouton 1 Roseau
         boutonPeche = new BoutonPeche("1 Peche");
         boutonPeche.createButton();
-        boutonPeche.setBounds(360, 280, 180, 120);
+        boutonPeche.setBounds(570, 650, 190, 120);
         boutonPeche.setVisible(true);
+        
+
+        //Bouton Piece Etable
+        boutonPieceEtable = new BoutonPieceEtable("Piece Etable");
+        boutonPieceEtable.createButton();
+        boutonPieceEtable.setBounds(240, 150, 190, 120);
+        boutonPieceEtable.setVisible(true);
+
+        //Bouton Premier Joueur
+        boutonPremierJoueur = new BoutonPremierJoueur("Premier Joueur");
+        boutonPremierJoueur.createButton();
+        boutonPremierJoueur.setBounds(365, 150, 190, 120);
+        boutonPremierJoueur.setVisible(true);
         
         //########################################
         //Bouton 1 Cereale
         bouton1Cereale = new Bouton1Cereale("1 Céréale");
         bouton1Cereale.createButton();
-        bouton1Cereale.setBounds(360, 280, 180, 120);
+        bouton1Cereale.setBounds(365, 275, 190, 120);
         bouton1Cereale.setVisible(true);
-
-        //Bouton Premier Joueur
-        boutonPremierJoueur = new BoutonPremierJoueur("Premier Joueur");
-        boutonPremierJoueur.createButton();
-        boutonPremierJoueur.setBounds(360, 155, 180, 120);
-        boutonPremierJoueur.setVisible(true);
         
+        //########################################
+        //Bouton Labourer
+        boutonLabourer = new BoutonLabourer("Labourer");
+        boutonLabourer.createButton();
+        boutonLabourer.setBounds(490, 275, 190, 120);
+        boutonLabourer.setVisible(true);
+    
+        //########################################
+        //Bouton Etable Pain
+        boutonEtablePain = new boutonEtablePain("Etable Pain");
+        boutonEtablePain.createButton();
+        boutonEtablePain.setBounds(365, 275, 190, 120);
+        boutonEtablePain.setVisible(true);
+    
+        //########################################
+        //Bouton Journalier
+        boutonJournalier = new BoutonJournalier("Journalier");
+        boutonJournalier.createButton();
+        boutonJournalier.setBounds(365, 275, 190, 120);
+        boutonJournalier.setVisible(true);
 
 
         //fenetre principale
@@ -287,9 +319,12 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         plateau.add(bouton1Argile);
         plateau.add(bouton1Roseau);
         plateau.add(boutonPeche);
+        plateau.add(boutonPieceEtable);
         plateau.add(boutonPremierJoueur);
         plateau.add(bouton1Cereale);
-
+        plateau.add(boutonLabourer);
+        plateau.add(boutonEtablePain);
+        plateau.add(boutonJournalier);
 
         //plateau.add(bb);
 

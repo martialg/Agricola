@@ -12,7 +12,7 @@ import plateau.action.ActionPeche;
 public class BoutonJournalier extends JButton implements ActionListener{
     private ActionJournalier action;
 
-    public BoutonJournalier(){
+    public BoutonJournalier(String nom){
         super();
         action = new ActionJournalier();
         addActionListener(this);
