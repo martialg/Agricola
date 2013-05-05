@@ -8,6 +8,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,15 +20,16 @@ import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import joueur.Couleur;
 import joueur.Joueur;
 
-public class Accueil extends JPanel implements ActionListener {
+public class InterfaceAccueil extends JPanel implements ActionListener {
 
     private static JFrame fenetre;
     private static BufferedImage background;
-    private static Accueil accueil;
+    private static InterfaceAccueil accueil;
     private static JoliBouton bouton_fermer;
     private static JoliBouton bouton_jouer;
     private static JoliBouton bouton_regle;
@@ -56,11 +58,11 @@ public class Accueil extends JPanel implements ActionListener {
     private static Joueur joueur5;
     
 
-    public Accueil() {
+    public InterfaceAccueil() {
         try {
             background = ImageIO.read(new File("images/background2.png"));
         } catch (IOException ex) {
-            Logger.getLogger(Accueil.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InterfaceAccueil.class.getName()).log(Level.SEVERE, null, ex);
         }
         Agricola.initialisationAgricola();
         fenetre = new JFrame();
@@ -75,7 +77,7 @@ public class Accueil extends JPanel implements ActionListener {
     }
 
     public static void start() throws IOException {
-        Accueil.affichage();
+        InterfaceAccueil.affichage();
     }
 
     private static void affichage() throws IOException {
@@ -246,7 +248,7 @@ public class Accueil extends JPanel implements ActionListener {
 
 
         //fenetre principale
-        accueil = new Accueil();
+        accueil = new InterfaceAccueil();
         accueil.setOpaque(true);
         accueil.setLayout(null);
 
@@ -352,9 +354,13 @@ public class Accueil extends JPanel implements ActionListener {
                 break;
             case "Lancer":
                 //System.out.println(Agricola.getJoueurs());
-                fenetre.dispose();
-                Plateau.affichage();
-                
+                if(Agricola.getJoueurs().size()>=2){
+                    fenetre.dispose();
+                    InterfacePlateau.affichage();
+                    
+                }else{
+                    JOptionPane.showMessageDialog(null,"Veuillez saisir au minimum 2 Joueurs", "Attention", 1);
+                }
                 break;
             case "Règle":
                 System.exit(0);
@@ -369,4 +375,6 @@ public class Accueil extends JPanel implements ActionListener {
         int y = (getHeight() - background.getHeight()) / 2;
         g.drawImage(background, x, y, this);
     }
+    
+    
 }

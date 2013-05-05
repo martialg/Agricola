@@ -10,44 +10,62 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import joueur.Joueur;
 
-public class Plateau extends JPanel implements MouseListener, ActionListener {
+public class InterfacePlateauJoueur extends JPanel implements MouseListener, ActionListener {
+
     private static JFrame fenetre;
     private static BufferedImage background;
-    private static Plateau plateau;
+    private static InterfacePlateauJoueur plateau_joueur;
+    private static ArrayList<GradientCircularButton> pions;
+    private static Joueur joueur;
 
-    public Plateau() {
+    public InterfacePlateauJoueur() {
         try {
-            background = ImageIO.read(new File("images/plateau2.png"));
+            background = ImageIO.read(new File("images/plateau-joueur-base.png"));
         } catch (IOException ex) {
-            Logger.getLogger(Accueil.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InterfacePlateauJoueur.class.getName()).log(Level.SEVERE, null, ex);
         }
         fenetre = new JFrame();
-        fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fenetre.setSize(1800, 1000);
+        fenetre.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        fenetre.setSize(600, 458);
         fenetre.setContentPane(this);
-        Color c1 = new Color(0xC96D1C);
-        fenetre.getContentPane().setBackground(c1);
-        fenetre.setResizable(true);
+        //Color c1 = new Color(0xC96D1C);
+        //fenetre.getContentPane().setBackground(c1);
+        fenetre.setResizable(false);
         fenetre.setLocationRelativeTo(fenetre.getParent());
         fenetre.setVisible(true);
+
+    }
+    
+    public static void intialisationNbPion(){
+        pions = new ArrayList<GradientCircularButton>();
+        pions.add(new GradientCircularButton("Joueur",new Color(0xDC3333)));
+        pions.add(new GradientCircularButton("Joueur",new Color(0xDC3333)));
+    }
+    
+    public static void affichePions(){
         
     }
 
     public static void affichage() {
+        
+        
+        
         //fenetre principale
-        plateau = new Plateau();
-        plateau.setOpaque(true);
-        plateau.setLayout(null);
+        plateau_joueur = new InterfacePlateauJoueur();
+        plateau_joueur.setOpaque(true);
+        plateau_joueur.setLayout(null);
     }
 
     public static void start() throws IOException {
-        Plateau.affichage();
+        InterfacePlateau.affichage();
     }
 
     @Override
@@ -73,7 +91,7 @@ public class Plateau extends JPanel implements MouseListener, ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
     }
-    
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
