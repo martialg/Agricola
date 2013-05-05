@@ -1,5 +1,5 @@
 package joueur;
 
 public enum Couleur {
-    BLEU, VERT, ROUGE, NATUREL, VIOLET
+    ROUGE, VERT, BLEU, VIOLET, NATUREL
 }
