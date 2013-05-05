@@ -180,50 +180,50 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         couleur_rouge_pressed = new Color(0x8A1919);
         joueur_rouge = new GradientCircularButton("Joueur 1", couleur_rouge_over, couleur_rouge_pressed);
         joueur_rouge.setVisible(false);
-        joueur_rouge.setBounds(1400, 50, 100, 100);
+        joueur_rouge.setBounds(1180, 90, 100, 100);
 
         //bouton vert
         couleur_vert_over = new Color(0x08C701);
         couleur_vert_pressed = new Color(0x048100);
         joueur_vert = new GradientCircularButton("Joueur 2", couleur_vert_over, couleur_vert_pressed);
         joueur_vert.setVisible(false);
-        joueur_vert.setBounds(1500, 60, 100, 100);
+        joueur_vert.setBounds(1310, 90, 100, 100);
 
         //bouton bleu
         couleur_bleu_over = new Color(0x006FFF);
         couleur_bleu_pressed = new Color(0x003479);
         joueur_bleu = new GradientCircularButton("Joueur 3", couleur_bleu_over, couleur_bleu_pressed);
         joueur_bleu.setVisible(false);
-        joueur_bleu.setBounds(270, 200, 100, 100);
+        joueur_bleu.setBounds(1440, 90, 100, 100);
 
         //bouton violet
         couleur_violet_over = new Color(0xCA00F7);
         couleur_violet_pressed = new Color(0x71008A);
         joueur_violet = new GradientCircularButton("Joueur 4", couleur_violet_over, couleur_violet_pressed);
         joueur_violet.setVisible(false);
-        joueur_violet.setBounds(390, 200, 100, 100);
+        joueur_violet.setBounds(1570, 90, 100, 100);
 
         //bouton naturel
         couleur_naturel_over = new Color(0xFFED8E);
         couleur_naturel_pressed = new Color(0xFFDE32);
         joueur_naturel = new GradientCircularButton("Joueur 5", couleur_naturel_over, couleur_naturel_pressed);
         joueur_naturel.setVisible(false);
-        joueur_naturel.setBounds(510, 200, 100, 100);
-        
-        
+        joueur_naturel.setBounds(1700, 90, 100, 100);
+
+
         //########################################
         //Bouton 1 Cereale
         bouton1Cereale = new Bouton1Cereale("1 Céréale");
         bouton1Cereale.createButton();
-        bouton1Cereale.setBounds(360,280, 180, 120);
+        bouton1Cereale.setBounds(360, 280, 180, 120);
         bouton1Cereale.setVisible(true);
-        
+
         //Bouton Premier Joueur
         boutonPremierJoueur = new BoutonPremierJoueur("Premier Joueur");
         boutonPremierJoueur.createButton();
-        boutonPremierJoueur.setBounds(360,155, 180, 120);
+        boutonPremierJoueur.setBounds(360, 155, 180, 120);
         boutonPremierJoueur.setVisible(true);
-        
+
 
         //fenetre principale
         plateau = new InterfacePlateau();
@@ -246,37 +246,57 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         plateau.add(carte_tournee_12);
         plateau.add(carte_tournee_13);
         plateau.add(carte_tournee_14);
-        
+
         plateau.add(label_choix_joueur);
-        
+
         plateau.add(boutonPremierJoueur);
         plateau.add(bouton1Cereale);
-        
-        
+
+
         //plateau.add(bb);
 
-        
+
         afficheBoutonJoueurPresent();
-        
+
     }
-    
-    public static void afficheBoutonJoueurPresent(){
-        for(Joueur joueur : Agricola.getJoueurs()){
-            
-            if(joueur.getCouleur()==Couleur.ROUGE){
+
+    public static void afficheBoutonJoueurPresent() {
+        for (Joueur joueur : Agricola.getJoueurs()) {
+            System.out.println(joueur.getNom());
+            if (joueur.getCouleur() == Couleur.ROUGE) {
                 interface_joueur1 = new InterfacePlateauJoueur(joueur);
                 listeplateau.add(interface_joueur1);
                 plateau.add(joueur_rouge);
-                joueur_rouge.addActionListener(plateau);
                 joueur_rouge.setVisible(true);
-                
+                joueur_rouge.addActionListener(plateau);
             }
-            if(joueur.getCouleur()==Couleur.VERT){
+            if (joueur.getCouleur() == Couleur.VERT) {
                 interface_joueur2 = new InterfacePlateauJoueur(joueur);
                 listeplateau.add(interface_joueur2);
                 plateau.add(joueur_vert);
-                joueur_vert.addActionListener(plateau);
                 joueur_vert.setVisible(true);
+                joueur_vert.addActionListener(plateau);
+            }
+            if (joueur.getCouleur() == Couleur.BLEU) {
+                interface_joueur3 = new InterfacePlateauJoueur(joueur);
+                listeplateau.add(interface_joueur1);
+                plateau.add(joueur_bleu);
+                joueur_bleu.setVisible(true);
+                joueur_bleu.addActionListener(plateau);
+            }
+            if (joueur.getCouleur() == Couleur.VIOLET) {
+                interface_joueur4 = new InterfacePlateauJoueur(joueur);
+                listeplateau.add(interface_joueur2);
+                plateau.add(joueur_violet);
+                joueur_violet.setVisible(true);
+                joueur_violet.addActionListener(plateau);
+            }
+            if (joueur.getCouleur() == Couleur.NATUREL) {
+                interface_joueur5 = new InterfacePlateauJoueur(joueur);
+                listeplateau.add(interface_joueur2);
+                plateau.add(joueur_naturel);
+                joueur_naturel.setVisible(true);
+                joueur_naturel.addActionListener(plateau);
             }
         }
     }
@@ -294,14 +314,27 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         String action_name = action.substring(debut, fin);
         switch (action_name) {
             case "Joueur 1":
-                InterfacePlateauJoueur.affichage();
-            break;
+                interface_joueur1.setVisibleTrue();
+                interface_joueur1.affichage();
+                break;
             case "Joueur 2":
-                InterfacePlateauJoueur.affichage();
-            break;
+                interface_joueur2.setVisibleTrue();
+                interface_joueur2.affichage();
+                break;
+            case "Joueur 3":
+                interface_joueur3.setVisibleTrue();
+                interface_joueur3.affichage();
+                break;
+            case "Joueur 4":
+                interface_joueur4.setVisibleTrue();
+                interface_joueur4.affichage();
+                break;
+            case "Joueur 5":
+                interface_joueur5.setVisibleTrue();
+                interface_joueur5.affichage();
+                break;
         }
     }
-
 
     @Override
     public void paintComponent(Graphics g) {
