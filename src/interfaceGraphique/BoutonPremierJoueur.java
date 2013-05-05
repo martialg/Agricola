@@ -1,14 +1,19 @@
 package interfaceGraphique;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import agricola.Agricola;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import plateau.action.ActionPremierJoueur;
 
-public class BoutonPremierJoueur extends JButton implements MouseListener{
-
+public class BoutonPremierJoueur extends JButton implements ActionListener{
+    private ActionPremierJoueur action;
     public BoutonPremierJoueur(String nom) {
         super();
+        this.setName(nom);
+        action = new ActionPremierJoueur();
+        addActionListener(this);
     }
 
     protected void createButton() {
@@ -16,24 +21,15 @@ public class BoutonPremierJoueur extends JButton implements MouseListener{
         this.setBorderPainted(true);
         this.setContentAreaFilled(false);
     }
-    
-    @Override
-    public void mouseEntered(java.awt.event.MouseEvent evt) {}
 
     @Override
-    public void mouseExited(java.awt.event.MouseEvent evt) {}
-
-    @Override
-    public void mouseClicked(MouseEvent e){
-        System.out.println("test");
-        DialogConfirm dc = new DialogConfirm("Voulez vous devenir le premier joueur ?");
-        JDialog dialog = dc.createDialog(this.getParent(), "Confirmation");
-        dialog.setVisible(true);
+    public void actionPerformed(ActionEvent e) {
+        int result = JOptionPane.showConfirmDialog(null, "Voulez vous devenir le premier joueur ?"); 
+        // oui = 0, non = 1 annuler = 2
+        if(result == 0){
+            action.action(Agricola.getJoueurCourant());
+        }
     }
     
-    @Override
-    public void mousePressed(MouseEvent e) {}
-    
-    @Override
-    public void mouseReleased(MouseEvent e) {}
+
 }

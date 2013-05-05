@@ -65,8 +65,17 @@ public class InterfacePlateau extends JPanel implements ActionListener {
     private static Color couleur_violet_pressed;
     private static Color couleur_naturel_over;
     private static Color couleur_naturel_pressed;
-    private static Bouton1Cereale bouton1Cereale;
+    
+    private static Bouton3Bois bouton3Bois;
+    private static Bouton1Argile bouton1Argile;
+    private static Bouton1Roseau bouton1Roseau;
+    private static BoutonPeche boutonPeche;
+    private static BoutonPieceEtable boutonPieceEtable;
     private static BoutonPremierJoueur boutonPremierJoueur;
+    private static Bouton1Cereale bouton1Cereale;
+    private static BoutonLabourer boutonLabourer;
+    private static boutonEtablePain boutonEtablePain;
+    private static BoutonJournalier boutonJournalier;
 
     public InterfacePlateau() {
         try {
@@ -212,17 +221,73 @@ public class InterfacePlateau extends JPanel implements ActionListener {
 
 
         //########################################
-        //Bouton 1 Cereale
-        bouton1Cereale = new Bouton1Cereale("1 Céréale");
-        bouton1Cereale.createButton();
-        bouton1Cereale.setBounds(360, 280, 180, 120);
-        bouton1Cereale.setVisible(true);
+        //Bouton 3 Bois
+        bouton3Bois = new Bouton3Bois("3 Bois");
+        bouton3Bois.createButton();
+        bouton3Bois.setBounds(570, 275, 190, 120);
+        bouton3Bois.setVisible(true);
+        
+        //########################################
+        //Bouton 1 Argile
+        bouton1Argile = new Bouton1Argile("1 Argile");
+        bouton1Argile.createButton();
+        bouton1Argile.setBounds(570, 400, 190, 120);
+        bouton1Argile.setVisible(true);
+        
+        //########################################
+        //Bouton 1 Roseau
+        bouton1Roseau = new Bouton1Roseau("1 Roseau");
+        bouton1Roseau.createButton();
+        bouton1Roseau.setBounds(570, 525, 190, 120);
+        bouton1Roseau.setVisible(true);
+        
+        //########################################
+        //Bouton 1 Roseau
+        boutonPeche = new BoutonPeche("1 Peche");
+        boutonPeche.createButton();
+        boutonPeche.setBounds(570, 650, 190, 120);
+        boutonPeche.setVisible(true);
+        
+
+        //Bouton Piece Etable
+        boutonPieceEtable = new BoutonPieceEtable("Piece Etable");
+        boutonPieceEtable.createButton();
+        boutonPieceEtable.setBounds(240, 150, 190, 120);
+        boutonPieceEtable.setVisible(true);
 
         //Bouton Premier Joueur
         boutonPremierJoueur = new BoutonPremierJoueur("Premier Joueur");
         boutonPremierJoueur.createButton();
-        boutonPremierJoueur.setBounds(360, 155, 180, 120);
+        boutonPremierJoueur.setBounds(365, 150, 190, 120);
         boutonPremierJoueur.setVisible(true);
+        
+        //########################################
+        //Bouton 1 Cereale
+        bouton1Cereale = new Bouton1Cereale("1 Céréale");
+        bouton1Cereale.createButton();
+        bouton1Cereale.setBounds(365, 275, 190, 120);
+        bouton1Cereale.setVisible(true);
+        
+        //########################################
+        //Bouton Labourer
+        boutonLabourer = new BoutonLabourer("Labourer");
+        boutonLabourer.createButton();
+        boutonLabourer.setBounds(490, 275, 190, 120);
+        boutonLabourer.setVisible(true);
+    
+        //########################################
+        //Bouton Etable Pain
+        boutonEtablePain = new boutonEtablePain("Etable Pain");
+        boutonEtablePain.createButton();
+        boutonEtablePain.setBounds(365, 275, 190, 120);
+        boutonEtablePain.setVisible(true);
+    
+        //########################################
+        //Bouton Journalier
+        boutonJournalier = new BoutonJournalier("Journalier");
+        boutonJournalier.createButton();
+        boutonJournalier.setBounds(365, 275, 190, 120);
+        boutonJournalier.setVisible(true);
 
 
         //fenetre principale
@@ -249,9 +314,17 @@ public class InterfacePlateau extends JPanel implements ActionListener {
 
         plateau.add(label_choix_joueur);
 
+        
+        plateau.add(bouton3Bois);
+        plateau.add(bouton1Argile);
+        plateau.add(bouton1Roseau);
+        plateau.add(boutonPeche);
+        plateau.add(boutonPieceEtable);
         plateau.add(boutonPremierJoueur);
         plateau.add(bouton1Cereale);
-
+        plateau.add(boutonLabourer);
+        plateau.add(boutonEtablePain);
+        plateau.add(boutonJournalier);
 
         //plateau.add(bb);
 
@@ -262,37 +335,36 @@ public class InterfacePlateau extends JPanel implements ActionListener {
 
     public static void afficheBoutonJoueurPresent() {
         for (Joueur joueur : Agricola.getJoueurs()) {
-            System.out.println(joueur.getNom());
             if (joueur.getCouleur() == Couleur.ROUGE) {
-                interface_joueur1 = new InterfacePlateauJoueur(joueur);
+                interface_joueur1 = new InterfacePlateauJoueur(joueur, couleur_rouge_over);
                 listeplateau.add(interface_joueur1);
                 plateau.add(joueur_rouge);
                 joueur_rouge.setVisible(true);
                 joueur_rouge.addActionListener(plateau);
             }
             if (joueur.getCouleur() == Couleur.VERT) {
-                interface_joueur2 = new InterfacePlateauJoueur(joueur);
+                interface_joueur2 = new InterfacePlateauJoueur(joueur, couleur_vert_over);
                 listeplateau.add(interface_joueur2);
                 plateau.add(joueur_vert);
                 joueur_vert.setVisible(true);
                 joueur_vert.addActionListener(plateau);
             }
             if (joueur.getCouleur() == Couleur.BLEU) {
-                interface_joueur3 = new InterfacePlateauJoueur(joueur);
+                interface_joueur3 = new InterfacePlateauJoueur(joueur, couleur_bleu_over);
                 listeplateau.add(interface_joueur1);
                 plateau.add(joueur_bleu);
                 joueur_bleu.setVisible(true);
                 joueur_bleu.addActionListener(plateau);
             }
             if (joueur.getCouleur() == Couleur.VIOLET) {
-                interface_joueur4 = new InterfacePlateauJoueur(joueur);
+                interface_joueur4 = new InterfacePlateauJoueur(joueur, couleur_violet_over);
                 listeplateau.add(interface_joueur2);
                 plateau.add(joueur_violet);
                 joueur_violet.setVisible(true);
                 joueur_violet.addActionListener(plateau);
             }
             if (joueur.getCouleur() == Couleur.NATUREL) {
-                interface_joueur5 = new InterfacePlateauJoueur(joueur);
+                interface_joueur5 = new InterfacePlateauJoueur(joueur, couleur_naturel_over);
                 listeplateau.add(interface_joueur2);
                 plateau.add(joueur_naturel);
                 joueur_naturel.setVisible(true);
@@ -302,6 +374,7 @@ public class InterfacePlateau extends JPanel implements ActionListener {
     }
 
     public static void start() throws IOException {
+        Agricola.premierTour();
         InterfacePlateau.affichage();
     }
 
@@ -316,6 +389,7 @@ public class InterfacePlateau extends JPanel implements ActionListener {
             case "Joueur 1":
                 interface_joueur1.setVisibleTrue();
                 interface_joueur1.affichage();
+                //System.out.println(interface_joueur1.getJoueur().compterHabitants());
                 break;
             case "Joueur 2":
                 interface_joueur2.setVisibleTrue();

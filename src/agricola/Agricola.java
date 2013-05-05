@@ -96,6 +96,11 @@ public class Agricola {
         }
     }
     
+    public static void premierTour(){
+        System.out.println(premier_joueur);
+        joueur_courant = premier_joueur;
+    }
+    
     public static void finDeTour(){
         if(tour_courant.getNumero() == 4 || tour_courant.getNumero() == 7 || tour_courant.getNumero() == 9 
                 || tour_courant.getNumero() == 11 || tour_courant.getNumero() == 13){

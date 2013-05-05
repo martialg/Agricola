@@ -20,13 +20,10 @@ public class ActionJournalier extends CaseActionChoix{
                 joueur.getRessources().getPierre().ajouter(1);
                 break;
         }
+        joueur.getRessources().ajouterNourriture(1);
         this.joueur_sur_case = joueur;
         return true;
     }
     
-    public boolean action(Joueur joueur){
-        joueur.getRessources().ajouterNourriture(1);
-        return true;
-    }
     
 }
