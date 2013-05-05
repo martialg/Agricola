@@ -22,4 +22,8 @@ public class Periode {
     public ArrayList<Tour> getTours(){
         return this.tours;
     }
+    
+    public Tour getTour(int index){
+        return this.tours.get(index);
+    }
 }

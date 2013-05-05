@@ -19,6 +19,10 @@ public class Tour {
         return this.numero;
     }
     
+    public CaseAction getAction(){
+        return this.action;
+    }
+    
     public void ajouterNourriturePourJoueur(Joueur joueur, Integer quantite){
         this.nourriture_pour_joueur.put(joueur, quantite);
     }

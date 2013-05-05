@@ -20,7 +20,7 @@ public class MajeurPuits extends AmenagementMajeur{
         boolean reussit = this.attribuerAUnJoueur(joueur);
         if(reussit){
             //i est le numero du tour (et non la position dans la liste)
-            for(int i = Agricola.getTourCourant()+1; i <= Agricola.getTourCourant() + 5; i++){
+            for(int i = Agricola.getTourCourant().getNumero()+1; i <= Agricola.getTourCourant().getNumero() + 5; i++){
                 if(i <= 14)
                 Agricola.ajouterNourritureJoueurSurTour(i, this.joueur, 1);
             }

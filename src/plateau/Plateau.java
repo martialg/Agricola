@@ -3,16 +3,26 @@ package plateau;
 import carte.AmenagementMajeur;
 import carte.*;
 import java.util.ArrayList;
+import plateau.action.Action1Argile;
 import plateau.action.Action1Boeuf;
+import plateau.action.Action1Cereale;
 import plateau.action.Action1Legume;
 import plateau.action.Action1Mouton;
 import plateau.action.Action1Pierre;
+import plateau.action.Action1Roseau;
 import plateau.action.Action1Sanglier;
+import plateau.action.Action3Bois;
 import plateau.action.ActionAmenagement;
 import plateau.action.ActionCloture;
+import plateau.action.ActionEtablePain;
+import plateau.action.ActionJournalier;
 import plateau.action.ActionLabourageSemailles;
+import plateau.action.ActionLabourer;
 import plateau.action.ActionNaissance;
 import plateau.action.ActionNaissanceSansPlaceLibre;
+import plateau.action.ActionPeche;
+import plateau.action.ActionPieceEtable;
+import plateau.action.ActionPremierJoueur;
 import plateau.action.ActionRenovation;
 import plateau.action.ActionRenovationCloture;
 import plateau.action.ActionSemailles;
@@ -21,6 +31,7 @@ import plateau.action.CaseAction;
 public class Plateau {
     private ArrayList<Periode> periodes;
     private ArrayList<AmenagementMajeur> amenagements;
+    private ArrayList<CaseAction> actions_fixes;
     
     public Plateau(){
         this.periodes = new ArrayList<Periode>(6);
@@ -75,6 +86,16 @@ public class Plateau {
         this.amenagements.add(new MajeurPoterie());
         this.amenagements.add(new MajeurVannerie());
         
+        this.actions_fixes.add(new ActionPieceEtable());
+        this.actions_fixes.add(new ActionPremierJoueur());
+        this.actions_fixes.add(new Action1Cereale());
+        this.actions_fixes.add(new ActionLabourer());
+        this.actions_fixes.add(new ActionEtablePain());
+        this.actions_fixes.add(new ActionJournalier());
+        this.actions_fixes.add(new Action3Bois());
+        this.actions_fixes.add(new Action1Argile());
+        this.actions_fixes.add(new Action1Roseau());
+        this.actions_fixes.add(new ActionPeche());
     }
     
     public ArrayList<Periode> getPeriodes(){
@@ -83,5 +104,13 @@ public class Plateau {
     
     public ArrayList<AmenagementMajeur> getAmenagements(){
         return this.amenagements;
+    }
+    
+    public Periode getPeriodeSuivante(Periode courante){
+        return this.periodes.get(this.periodes.indexOf(courante)+1);
+    }
+    
+    public ArrayList<CaseAction> getActions_Fixes(){
+        return this.actions_fixes;
     }
 }
