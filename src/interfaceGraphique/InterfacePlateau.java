@@ -264,35 +264,35 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         for (Joueur joueur : Agricola.getJoueurs()) {
             System.out.println(joueur.getNom());
             if (joueur.getCouleur() == Couleur.ROUGE) {
-                interface_joueur1 = new InterfacePlateauJoueur(joueur);
+                interface_joueur1 = new InterfacePlateauJoueur(joueur, couleur_rouge_over);
                 listeplateau.add(interface_joueur1);
                 plateau.add(joueur_rouge);
                 joueur_rouge.setVisible(true);
                 joueur_rouge.addActionListener(plateau);
             }
             if (joueur.getCouleur() == Couleur.VERT) {
-                interface_joueur2 = new InterfacePlateauJoueur(joueur);
+                interface_joueur2 = new InterfacePlateauJoueur(joueur, couleur_vert_over);
                 listeplateau.add(interface_joueur2);
                 plateau.add(joueur_vert);
                 joueur_vert.setVisible(true);
                 joueur_vert.addActionListener(plateau);
             }
             if (joueur.getCouleur() == Couleur.BLEU) {
-                interface_joueur3 = new InterfacePlateauJoueur(joueur);
+                interface_joueur3 = new InterfacePlateauJoueur(joueur, couleur_bleu_over);
                 listeplateau.add(interface_joueur1);
                 plateau.add(joueur_bleu);
                 joueur_bleu.setVisible(true);
                 joueur_bleu.addActionListener(plateau);
             }
             if (joueur.getCouleur() == Couleur.VIOLET) {
-                interface_joueur4 = new InterfacePlateauJoueur(joueur);
+                interface_joueur4 = new InterfacePlateauJoueur(joueur, couleur_violet_over);
                 listeplateau.add(interface_joueur2);
                 plateau.add(joueur_violet);
                 joueur_violet.setVisible(true);
                 joueur_violet.addActionListener(plateau);
             }
             if (joueur.getCouleur() == Couleur.NATUREL) {
-                interface_joueur5 = new InterfacePlateauJoueur(joueur);
+                interface_joueur5 = new InterfacePlateauJoueur(joueur, couleur_naturel_over);
                 listeplateau.add(interface_joueur2);
                 plateau.add(joueur_naturel);
                 joueur_naturel.setVisible(true);
@@ -316,6 +316,7 @@ public class InterfacePlateau extends JPanel implements ActionListener {
             case "Joueur 1":
                 interface_joueur1.setVisibleTrue();
                 interface_joueur1.affichage();
+                //System.out.println(interface_joueur1.getJoueur().compterHabitants());
                 break;
             case "Joueur 2":
                 interface_joueur2.setVisibleTrue();
