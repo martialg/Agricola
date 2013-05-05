@@ -20,8 +20,20 @@ public class Agricola {
         return tour_courant;
     }
     
+    public static void initialisationAgricola(){
+        joueurs = new ArrayList<Joueur>();
+    }
+    
     public static void ajouterJoueur(Joueur joueur){
         joueurs.add(joueur);
+    }
+    
+    public static void supprimerJoueur(Joueur joueur){
+        joueurs.remove(joueur);
+    }
+    
+    public static ArrayList<Joueur> getJoueurs(){
+        return joueurs;
     }
     
     public static void ajouterNourritureJoueurSurTour(int numero_tour, Joueur joueur, int quantite){

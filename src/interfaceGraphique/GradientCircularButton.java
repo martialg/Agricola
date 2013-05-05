@@ -9,18 +9,27 @@ import java.awt.RenderingHints;
 import javax.swing.JButton;
 
 public class GradientCircularButton extends JButton {
+
     private int size;
     private Color color;
     private Color pressedColor;
     private Color overColor;
     private Color selectedColor;
 
+    public void setColor(Color color) {
+        this.color = color;
+    }
+    
+    public void setColorGris(){
+        this.color = new Color(0xABABAB);
+    }
+
     public GradientCircularButton(String s, Color over_color, Color pressed_color) {
         super();
-        color = new Color(0xABABAB);
-        pressedColor = pressed_color;
-        overColor = over_color;
-        selectedColor = pressedColor;
+        this.color = new Color(0xABABAB);
+        this.pressedColor = pressed_color;
+        this.overColor = over_color;
+        this.selectedColor = this.pressedColor;
         setText(s);
         setContentAreaFilled(false);
         setBorderPainted(false);
@@ -32,7 +41,7 @@ public class GradientCircularButton extends JButton {
 
     @Override
     public void paintComponent(Graphics g) {
-        size = Math.min(getWidth(), getHeight()) - 4;
+        this.size = Math.min(getWidth(), getHeight()) - 4;
         int totalSize = size + 4;
         Graphics2D graphics = (Graphics2D) g;
         graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
@@ -71,7 +80,7 @@ public class GradientCircularButton extends JButton {
 
         graphics.setPaint(highlight);
         paintInsetCircle(graphics, totalSize, 4);
-        
+
         paintInsetCircle(graphics, totalSize, 8);
 
         super.paintComponent(graphics);
@@ -81,5 +90,4 @@ public class GradientCircularButton extends JButton {
     private void paintInsetCircle(Graphics2D graphics, int size, int inset) {
         graphics.fillOval(inset, inset, size - inset * 2, size - inset * 2);
     }
-    
 }

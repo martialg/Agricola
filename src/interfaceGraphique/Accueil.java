@@ -49,6 +49,12 @@ public class Accueil extends JPanel implements ActionListener {
     private static Color couleur_violet_pressed;
     private static Color couleur_naturel_over;
     private static Color couleur_naturel_pressed;
+    private static Joueur joueur1;
+    private static Joueur joueur2;
+    private static Joueur joueur3;
+    private static Joueur joueur4;
+    private static Joueur joueur5;
+    
 
     public Accueil() {
         try {
@@ -56,13 +62,14 @@ public class Accueil extends JPanel implements ActionListener {
         } catch (IOException ex) {
             Logger.getLogger(Accueil.class.getName()).log(Level.SEVERE, null, ex);
         }
+        Agricola.initialisationAgricola();
         fenetre = new JFrame();
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fenetre.setSize(660, 420);
         fenetre.setContentPane(this);
         Color c1 = new Color(0xC96D1C);
         fenetre.getContentPane().setBackground(c1);
-        fenetre.setResizable(true);
+        fenetre.setResizable(false);
         fenetre.setLocationRelativeTo(fenetre.getParent());
         fenetre.setVisible(true);
     }
@@ -264,6 +271,11 @@ public class Accueil extends JPanel implements ActionListener {
         bouton_fermer.addActionListener(accueil);
         bouton_retour.addActionListener(accueil);
         joueur_rouge.addActionListener(accueil);
+        joueur_vert.addActionListener(accueil);
+        joueur_bleu.addActionListener(accueil);
+        joueur_violet.addActionListener(accueil);
+        joueur_naturel.addActionListener(accueil);
+        bouton_lancer.addActionListener(accueil);
     }
 
     @Override
@@ -302,10 +314,47 @@ public class Accueil extends JPanel implements ActionListener {
                 joueur_naturel.setVisible(false);
                 bouton_lancer.setVisible(false);
                 bouton_retour.setVisible(false);
+                Agricola.supprimerJoueur(joueur1);
+                Agricola.supprimerJoueur(joueur2);
+                Agricola.supprimerJoueur(joueur3);
+                Agricola.supprimerJoueur(joueur4);
+                Agricola.supprimerJoueur(joueur5);
+                joueur_rouge.setColorGris();
+                joueur_vert.setColorGris();
+                joueur_bleu.setColorGris();
+                joueur_violet.setColorGris();
+                joueur_naturel.setColorGris();
                 break;
             case "Joueur 1":
-                Joueur j1 = new Joueur("Joueur 1",Couleur.ROUGE);
-                //Agricola.ajouterJoueur(j1);
+                joueur1 = new Joueur("Joueur 1", Couleur.ROUGE);
+                Agricola.ajouterJoueur(joueur1);
+                joueur_rouge.setColor(couleur_rouge_over);
+                break;
+            case "Joueur 2":
+                joueur2 = new Joueur("Joueur 2", Couleur.VERT);
+                Agricola.ajouterJoueur(joueur2);
+                joueur_vert.setColor(couleur_vert_over);
+                break;
+            case "Joueur 3":
+                joueur3 = new Joueur("Joueur 3", Couleur.BLEU);
+                Agricola.ajouterJoueur(joueur3);
+                joueur_bleu.setColor(couleur_bleu_over);
+                break;
+            case "Joueur 4":
+                joueur4 = new Joueur("Joueur 4", Couleur.VIOLET);
+                Agricola.ajouterJoueur(joueur4);
+                joueur_violet.setColor(couleur_violet_over);
+                break;
+            case "Joueur 5":
+                joueur5 = new Joueur("Joueur 4", Couleur.NATUREL);
+                Agricola.ajouterJoueur(joueur5);
+                joueur_naturel.setColor(couleur_naturel_over);
+                break;
+            case "Lancer":
+                //System.out.println(Agricola.getJoueurs());
+                fenetre.dispose();
+                Plateau.affichage();
+                
                 break;
             case "Règle":
                 System.exit(0);
