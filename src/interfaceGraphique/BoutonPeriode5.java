@@ -2,12 +2,12 @@ package interfaceGraphique;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
+import plateau.action.CaseAction;
 
 class BoutonPeriode5 extends BoutonPeriode implements ActionListener{
 
-    public BoutonPeriode5(){
-        super();
+    public BoutonPeriode5(CaseAction case_action){
+        super(case_action);
     }
     
     @Override

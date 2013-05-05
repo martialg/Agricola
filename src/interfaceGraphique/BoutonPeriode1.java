@@ -1,14 +1,13 @@
 package interfaceGraphique;
 
-import carte.AmenagementMajeur;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
+import plateau.action.CaseAction;
 
 class BoutonPeriode1 extends BoutonPeriode implements ActionListener{
     
-    public BoutonPeriode1(){
-        super();
+    public BoutonPeriode1(CaseAction case_action){
+        super(case_action);
     }
     
     @Override

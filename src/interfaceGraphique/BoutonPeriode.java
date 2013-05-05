@@ -7,6 +7,10 @@ import plateau.action.CaseAction;
 public class BoutonPeriode extends JButton{
     private CaseAction case_action;
     
+    public BoutonPeriode(CaseAction case_action){
+        this.case_action = case_action;
+    }
+    
     protected void createButton() {
         this.setFocusPainted(true);
         this.setBorderPainted(true);

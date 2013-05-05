@@ -20,6 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import joueur.Couleur;
 import joueur.Joueur;
+import plateau.Periode;
 
 public class InterfacePlateau extends JPanel implements ActionListener {
 
@@ -307,72 +308,74 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         boutonJournalier.setBounds(365, 650, 190, 120);
         boutonJournalier.setVisible(true);
 
-        boutonPeriode1Tour1 = new BoutonPeriode1();
+        ArrayList<Periode> liste_periode = Agricola.getPlateau().getPeriodes();
+        
+        boutonPeriode1Tour1 = new BoutonPeriode1(liste_periode.get(0).getTour(0).getAction());
         boutonPeriode1Tour1.createButton();
         boutonPeriode1Tour1.setBounds(590, 35, 160, 240);
         boutonPeriode1Tour1.setVisible(true);
         
-        boutonPeriode1Tour2 = new BoutonPeriode1();
+        boutonPeriode1Tour2 = new BoutonPeriode1(liste_periode.get(0).getTour(1).getAction());
         boutonPeriode1Tour2.createButton();
         boutonPeriode1Tour2.setBounds(765, 35, 160, 240);
         boutonPeriode1Tour2.setVisible(true);
         
-        boutonPeriode1Tour3 = new BoutonPeriode1();
+        boutonPeriode1Tour3 = new BoutonPeriode1(liste_periode.get(0).getTour(2).getAction());
         boutonPeriode1Tour3.createButton();
         boutonPeriode1Tour3.setBounds(765, 275, 160, 240);
         boutonPeriode1Tour3.setVisible(true);
         
-        boutonPeriode1Tour4 = new BoutonPeriode1();
+        boutonPeriode1Tour4 = new BoutonPeriode1(liste_periode.get(0).getTour(3).getAction());
         boutonPeriode1Tour4.createButton();
         boutonPeriode1Tour4.setBounds(765, 515, 160, 240);
         boutonPeriode1Tour4.setVisible(true);
         
-        boutonPeriode2Tour5 = new BoutonPeriode2();
+        boutonPeriode2Tour5 = new BoutonPeriode2(liste_periode.get(1).getTour(0).getAction());
         boutonPeriode2Tour5.createButton();
         boutonPeriode2Tour5.setBounds(940, 35, 160, 240);
         boutonPeriode2Tour5.setVisible(true);
         
-        boutonPeriode2Tour6 = new BoutonPeriode2();
+        boutonPeriode2Tour6 = new BoutonPeriode2(liste_periode.get(1).getTour(1).getAction());
         boutonPeriode2Tour6.createButton();
         boutonPeriode2Tour6.setBounds(940, 275, 160, 240);
         boutonPeriode2Tour6.setVisible(true);
         
-        boutonPeriode2Tour7 = new BoutonPeriode2();
+        boutonPeriode2Tour7 = new BoutonPeriode2(liste_periode.get(1).getTour(2).getAction());
         boutonPeriode2Tour7.createButton();
         boutonPeriode2Tour7.setBounds(940, 515, 190, 240);
         boutonPeriode2Tour7.setVisible(true);
         
-        boutonPeriode3Tour8 = new BoutonPeriode3();
+        boutonPeriode3Tour8 = new BoutonPeriode3(liste_periode.get(2).getTour(0).getAction());
         boutonPeriode3Tour8.createButton();
         boutonPeriode3Tour8.setBounds(1120, 275, 160, 240);
         boutonPeriode3Tour8.setVisible(true);
         
-        boutonPeriode3Tour9 = new BoutonPeriode3();
+        boutonPeriode3Tour9 = new BoutonPeriode3(liste_periode.get(2).getTour(1).getAction());
         boutonPeriode3Tour9.createButton();
         boutonPeriode3Tour9.setBounds(1120, 515, 160, 240);
         boutonPeriode3Tour9.setVisible(true);
         
-        boutonPeriode4Tour10 = new BoutonPeriode4();
+        boutonPeriode4Tour10 = new BoutonPeriode4(liste_periode.get(3).getTour(0).getAction());
         boutonPeriode4Tour10.createButton();
         boutonPeriode4Tour10.setBounds(1295, 275, 160, 240);
         boutonPeriode4Tour10.setVisible(true);
         
-        boutonPeriode4Tour11 = new BoutonPeriode4();
+        boutonPeriode4Tour11 = new BoutonPeriode4(liste_periode.get(3).getTour(1).getAction());
         boutonPeriode4Tour11.createButton();
         boutonPeriode4Tour11.setBounds(1295, 515, 160, 240);
         boutonPeriode4Tour11.setVisible(true);
         
-        boutonPeriode5Tour12 = new BoutonPeriode5();
+        boutonPeriode5Tour12 = new BoutonPeriode5(liste_periode.get(4).getTour(0).getAction());
         boutonPeriode5Tour12.createButton();
         boutonPeriode5Tour12.setBounds(1470, 275, 160, 240);
         boutonPeriode5Tour12.setVisible(true);
         
-        boutonPeriode5Tour13 = new BoutonPeriode5();
+        boutonPeriode5Tour13 = new BoutonPeriode5(liste_periode.get(4).getTour(1).getAction());
         boutonPeriode5Tour13.createButton();
         boutonPeriode5Tour13.setBounds(1470, 515, 160, 240);
         boutonPeriode5Tour13.setVisible(true);
         
-        boutonPeriode6Tour14 = new BoutonPeriode6();
+        boutonPeriode6Tour14 = new BoutonPeriode6(liste_periode.get(5).getTour(0).getAction());
         boutonPeriode6Tour14.createButton();
         boutonPeriode6Tour14.setBounds(1645, 275, 160, 240);
         boutonPeriode6Tour14.setVisible(true);
@@ -494,7 +497,6 @@ public class InterfacePlateau extends JPanel implements ActionListener {
             case "Joueur 1":
                 interface_joueur1.setVisibleTrue();
                 interface_joueur1.affichage();
-                //System.out.println(interface_joueur1.getJoueur().compterHabitants());
                 break;
             case "Joueur 2":
                 interface_joueur2.setVisibleTrue();
