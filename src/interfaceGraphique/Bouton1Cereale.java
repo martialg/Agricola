@@ -1,15 +1,18 @@
 package interfaceGraphique;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.JButton;
+import plateau.action.Action1Cereale;
+import agricola.Agricola;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Bouton1Cereale extends JButton implements MouseListener{
-    private static JButton bouton;
-
+public class Bouton1Cereale extends JButton implements ActionListener{
+    private Action1Cereale action;
+    
     public Bouton1Cereale(String nom) {
         super();
-        bouton = new JButton();
+        action = new Action1Cereale();
+        addActionListener(this);
     }
 
     protected void createButton() {
@@ -18,18 +21,9 @@ public class Bouton1Cereale extends JButton implements MouseListener{
         this.setContentAreaFilled(false);
     }
 
-     @Override
-    public void mouseEntered(java.awt.event.MouseEvent evt) {}
-
     @Override
-    public void mouseExited(java.awt.event.MouseEvent evt) {}
-
-    @Override
-    public void mouseClicked(MouseEvent e){}
+    public void actionPerformed(ActionEvent e) {
+        this.action.action(Agricola.getJoueurCourant());
+    }
     
-    @Override
-    public void mousePressed(MouseEvent e) {}
-    
-    @Override
-    public void mouseReleased(MouseEvent e) {}
 }

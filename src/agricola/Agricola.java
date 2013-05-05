@@ -34,6 +34,9 @@ public class Agricola {
         tour_courant = periode_courante.getTour(0);
     }
     
+    public static Joueur getJoueurCourant(){
+        return joueur_courant;
+    }
     public static void ajouterJoueur(Joueur joueur){
         joueurs.add(joueur);
         if(premier_joueur == null){
