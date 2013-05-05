@@ -27,10 +27,18 @@ public class Agricola {
     
     public static void initialisationAgricola(){
         joueurs = new ArrayList<Joueur>();
+        plateau = new Plateau();
+        premier_joueur = null;
+        joueur_courant = null;
+        periode_courante = plateau.getPeriodes().get(0);
+        tour_courant = periode_courante.getTour(0);
     }
     
     public static void ajouterJoueur(Joueur joueur){
         joueurs.add(joueur);
+        if(premier_joueur == null){
+            premier_joueur = joueur;
+        }
     }
     
     public static void supprimerJoueur(Joueur joueur){
