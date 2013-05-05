@@ -22,6 +22,7 @@ public class Agricola {
     
     public static void initialisationAgricola(){
         joueurs = new ArrayList<Joueur>();
+        
     }
     
     public static void ajouterJoueur(Joueur joueur){

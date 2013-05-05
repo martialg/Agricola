@@ -2,6 +2,7 @@ package interfaceGraphique;
 
 import agricola.Agricola;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -16,6 +17,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import joueur.Joueur;
 import plateau.action.Action3Bois;
@@ -39,6 +41,24 @@ public class InterfacePlateau extends JPanel implements MouseListener, ActionLis
     private static ImagePanel carte_tournee_12;
     private static ImagePanel carte_tournee_13;
     private static ImagePanel carte_tournee_14;
+    private static JLabel label_choix_joueur;
+    private static GradientCircularButton joueur_rouge;
+    private static GradientCircularButton joueur_vert;
+    private static GradientCircularButton joueur_bleu;
+    private static GradientCircularButton joueur_violet;
+    private static GradientCircularButton joueur_naturel;
+    private static Color couleur_rouge_over;
+    private static Color couleur_rouge_pressed;
+    private static Color couleur_vert_over;
+    private static Color couleur_vert_pressed;
+    private static Color couleur_bleu_over;
+    private static Color couleur_bleu_pressed;
+    private static Color couleur_violet_over;
+    private static Color couleur_violet_pressed;
+    private static Color couleur_naturel_over;
+    private static Color couleur_naturel_pressed;
+    private static Bouton1Cereale bouton1Cereale;
+    private static BoutonPremierJoueur boutonPremierJoueur;
 
     public InterfacePlateau() {
         try {
@@ -58,7 +78,7 @@ public class InterfacePlateau extends JPanel implements MouseListener, ActionLis
 
     }
 
-    public static void affichage() {
+    public static void affichage() throws IOException {
         //1er carte
         carte_tournee_1 = new ImagePanel("images/periode1.png");
         carte_tournee_1.setSize(148, 230);
@@ -130,15 +150,73 @@ public class InterfacePlateau extends JPanel implements MouseListener, ActionLis
         carte_tournee_14.setVisible(true);
         carte_tournee_14.setBounds(1652, 280, 148, 230);
 
-        BoutonBois bb = new BoutonBois();
+        //BoutonBois bb = new BoutonBois();
+        //bb.setVisible(true);
+        //bb.setBounds(500, 315, 40, 40);
 
-        bb.setVisible(true);
-        bb.setBounds(500, 315, 40, 40);
+        //Label choix des joueurs
+        Image im_lab;
+        im_lab = ImageIO.read(new File("images/label-background.png"));
+        label_choix_joueur = new JLabel("Choix des Joueurs");
+        label_choix_joueur.setIcon(new ImageIcon(im_lab));
+        label_choix_joueur.setFont(new Font("Matura MT Script Capitals", Font.ROMAN_BASELINE, 20));
+        Color c = new Color(0x643E1D);
+        label_choix_joueur.setHorizontalTextPosition(JLabel.CENTER);
+        label_choix_joueur.setVerticalTextPosition(JLabel.CENTER);
+        label_choix_joueur.setForeground(c);
+        label_choix_joueur.setBounds(130, 145, 400, 40);
+        label_choix_joueur.setVisible(false);
 
-        for (Joueur joueur : Agricola.getJoueurs()) {
-            InterfacePlateauJoueur.affichage();
-            
-        }
+        //bouton rouge
+        couleur_rouge_over = new Color(0xDC3333);
+        couleur_rouge_pressed = new Color(0x8A1919);
+        joueur_rouge = new GradientCircularButton("Joueur 1", couleur_rouge_over, couleur_rouge_pressed);
+        joueur_rouge.setVisible(false);
+        joueur_rouge.setBounds(1600, 50, 100, 100);
+
+        //bouton vert
+        couleur_vert_over = new Color(0x08C701);
+        couleur_vert_pressed = new Color(0x048100);
+        joueur_vert = new GradientCircularButton("Joueur 2", couleur_vert_over, couleur_vert_pressed);
+        joueur_vert.setVisible(false);
+        joueur_vert.setBounds(150, 200, 100, 100);
+
+        //bouton bleu
+        couleur_bleu_over = new Color(0x006FFF);
+        couleur_bleu_pressed = new Color(0x003479);
+        joueur_bleu = new GradientCircularButton("Joueur 3", couleur_bleu_over, couleur_bleu_pressed);
+        joueur_bleu.setVisible(false);
+        joueur_bleu.setBounds(270, 200, 100, 100);
+
+        //bouton violet
+        couleur_violet_over = new Color(0xCA00F7);
+        couleur_violet_pressed = new Color(0x71008A);
+        joueur_violet = new GradientCircularButton("Joueur 4", couleur_violet_over, couleur_violet_pressed);
+        joueur_violet.setVisible(false);
+        joueur_violet.setBounds(390, 200, 100, 100);
+
+        //bouton naturel
+        couleur_naturel_over = new Color(0xFFED8E);
+        couleur_naturel_pressed = new Color(0xFFDE32);
+        joueur_naturel = new GradientCircularButton("Joueur 5", couleur_naturel_over, couleur_naturel_pressed);
+        joueur_naturel.setVisible(false);
+        joueur_naturel.setBounds(510, 200, 100, 100);
+        
+        
+        
+        //########################################
+        //Bouton 1 Cereale
+        bouton1Cereale = new Bouton1Cereale("1 Céréale");
+        bouton1Cereale.createButton();
+        bouton1Cereale.setBounds(360,280, 180, 120);
+        bouton1Cereale.setVisible(true);
+        
+        //Bouton Premier Joueur
+        boutonPremierJoueur = new BoutonPremierJoueur("Premier Joueur");
+        boutonPremierJoueur.createButton();
+        boutonPremierJoueur.setBounds(360,155, 180, 120);
+        boutonPremierJoueur.setVisible(true);
+        
 
         //fenetre principale
         plateau = new InterfacePlateau();
@@ -162,9 +240,22 @@ public class InterfacePlateau extends JPanel implements MouseListener, ActionLis
         plateau.add(carte_tournee_13);
         plateau.add(carte_tournee_14);
 
-        plateau.add(bb);
+        
+        plateau.add(boutonPremierJoueur);
+        plateau.add(bouton1Cereale);
+        
+        
+        //plateau.add(bb);
 
         //bouton_joueur.addActionListener(plateau);
+        
+        
+    }
+    
+    public static void afficheBoutonJoueurPresent(){
+        for(Joueur joueur : Agricola.getJoueurs()){
+            
+        }
     }
 
     public static void start() throws IOException {
