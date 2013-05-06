@@ -2,9 +2,12 @@ package interfaceGraphique;
 
 import agricola.Agricola;
 import java.awt.Color;
+import java.awt.Container;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +15,8 @@ import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -22,6 +27,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import joueur.Couleur;
 import joueur.Joueur;
 
@@ -357,7 +363,7 @@ public class InterfaceAccueil extends JPanel implements ActionListener {
                 joueur_naturel.setColor(couleur_naturel_over);
                 break;
             case "Lancer":
-                
+
                 if ((joueur1ajoute == true) && (joueur2ajoute == true)) {
                     if ((joueur5ajoute == true) && (joueur4ajoute == false) && (joueur3ajoute == false)) {
                         JOptionPane.showMessageDialog(null, "Veuillez seléctionner les Joueurs dans l'ordre proposé", "Attention", 1);
@@ -379,7 +385,7 @@ public class InterfaceAccueil extends JPanel implements ActionListener {
                     Agricola.ajouterJoueur(joueur1);
                     joueur2 = new Joueur("Joueur 2", Couleur.VERT);
                     Agricola.ajouterJoueur(joueur2);
-                    
+
                     if (joueur3ajoute == true) {
                         joueur3 = new Joueur("Joueur 3", Couleur.BLEU);
                         Agricola.ajouterJoueur(joueur3);
@@ -403,9 +409,15 @@ public class InterfaceAccueil extends JPanel implements ActionListener {
                 }
                 break;
             case "Règle":
-                System.exit(
-                        0);
+                URI uri= null;
 
+                try {
+                    uri = new URI("http://www.ludosbxl.irisnet.be/docnotice/agricola_2010_01_5_14_52_59.pdf");
+                } catch (URISyntaxException ex) {
+                    Logger.getLogger(InterfaceAccueil.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                open(uri);
 
                 break;
         }
@@ -417,5 +429,15 @@ public class InterfaceAccueil extends JPanel implements ActionListener {
         int x = (getWidth() - background.getWidth()) / 2;
         int y = (getHeight() - background.getHeight()) / 2;
         g.drawImage(background, x, y, this);
+    }
+
+    private static void open(URI uri) {
+        if (Desktop.isDesktopSupported()) {
+            try {
+                Desktop.getDesktop().browse(uri);
+            } catch (IOException e) {
+            }
+        }
+
     }
 }

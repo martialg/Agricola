@@ -10,7 +10,7 @@ public class ActionPeche extends RessourceCumulable{
     }
     
     public boolean action(Joueur joueur) {
-        joueur.getRessources().ajouterNourriture(quantite_cumulee);
+        joueur.getRessources().ajouterNourriture(quantite_cumulee);;
         this.prendreLesRessource();
         this.joueur_sur_case = joueur;
         return true;

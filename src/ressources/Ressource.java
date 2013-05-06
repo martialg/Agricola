@@ -20,39 +20,39 @@ public class Ressource {
     private Boeuf boeuf; 
 
     public int getNourriture() {
-        return nourriture;
+        return this.nourriture;
     }
 
     public Bois getBois() {
-        return bois;
+        return this.bois;
     }
 
     public Argile getArgile() {
-        return argile;
+        return this.argile;
     }
 
     public Pierre getPierre() {
-        return pierre;
+        return this.pierre;
     }
 
     public Roseau getRoseau() {
-        return roseau;
+        return this.roseau;
     }
 
     public Legume getLegume() {
-        return legume;
+        return this.legume;
     }
 
     public Cereale getCereale() {
-        return cereale;
+        return this.cereale;
     }
     
     public Mouton getMouton() {
-        return mouton;
+        return this.mouton;
     }
 
     public Boeuf getBoeuf() {
-        return boeuf;
+        return this.boeuf;
     }
     
 

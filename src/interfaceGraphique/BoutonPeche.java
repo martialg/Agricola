@@ -34,6 +34,7 @@ public class BoutonPeche extends BoutonAction implements ActionListener {
         if (result == 0) {
             this.action.action(Agricola.getJoueurCourant());
             this.ajoutBouton();
+            this.passeLaMain();
             this.pionnourriture.setVisible(false);
         }
     }

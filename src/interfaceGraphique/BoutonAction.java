@@ -29,7 +29,6 @@ public class BoutonAction extends JButton {
     }
 
     protected void passeLaMain() {
-
         Agricola.joueurSuivant();
         InterfacePlateau.afficheBoutonJoueurPresent();
         InterfacePlateau.getFrame().revalidate();

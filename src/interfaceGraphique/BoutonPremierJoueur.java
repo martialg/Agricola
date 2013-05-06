@@ -34,6 +34,7 @@ public class BoutonPremierJoueur extends BoutonAction implements ActionListener{
         if(result == 0){
             action.action(Agricola.getJoueurCourant());
             this.ajoutBouton();
+            this.passeLaMain();
             this.pionnourriture.setVisible(false);
         }
     }

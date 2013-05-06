@@ -21,7 +21,7 @@ public class Bouton1Argile extends BoutonAction implements ActionListener {
     
      public void ajoutArgile() {
         this.pionargile = new PionArgile();
-        pionargile.setVisible(true);
+        this.pionargile.setVisible(true);
         int x = this.getX();
         int y = this.getY();
         pionargile.setBounds(x + 130, y + 40, 40, 40);
