@@ -254,6 +254,7 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         bouton3Bois.createButton();
         bouton3Bois.setBounds(570, 275, 190, 120);
         bouton3Bois.setVisible(true);
+        
 
         //########################################
         //Bouton 1 Argile
@@ -390,8 +391,9 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         boutonPeriode6Tour14.setBounds(1645, 275, 160, 240);
         boutonPeriode6Tour14.setVisible(true);
 
-        //pion
-        //bouton3Bois.ajoutBois();
+        
+        
+        
 
         //fenetre principale
         plateau = new InterfacePlateau();
@@ -445,9 +447,12 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         plateau.add(boutonPeriode5Tour13);
         plateau.add(boutonPeriode6Tour14);
 
-       
-
-        
+        //pion
+        bouton3Bois.ajoutBois();
+        bouton1Argile.ajoutArgile();
+        bouton1Roseau.ajoutRoseau();
+        boutonPremierJoueur.ajoutPremierJoueur();
+        boutonPeche.ajoutPeche();
         
         Agricola.debutDeTour();
         afficheBoutonJoueurPresent();

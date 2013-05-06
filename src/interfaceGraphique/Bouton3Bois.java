@@ -10,6 +10,9 @@ import plateau.action.Action3Bois;
 public class Bouton3Bois extends BoutonAction implements ActionListener {
 
     private Action3Bois action;
+    private PionBois pionbois1;
+    private PionBois pionbois2;
+    private PionBois pionbois3;
 
     public Bouton3Bois(String nom, Action3Bois action) {
         super();
@@ -18,13 +21,24 @@ public class Bouton3Bois extends BoutonAction implements ActionListener {
         addActionListener(this);
     }
     
+    
     public void ajoutBois() {
-        PionBois pionbois = new PionBois();
-        pionbois.setVisible(true);
         int x = this.getX();
         int y = this.getY();
-        pionbois.setBounds(x + 20, y + 20, 40, 40);
-        InterfacePlateau.getFrame().add(pionbois);
+        
+        this.pionbois1 = new PionBois();
+        pionbois1.setVisible(true);
+        pionbois1.setBounds(x + 20, y + 20, 40, 40);
+        this.pionbois2 = new PionBois();
+        pionbois2.setVisible(true);
+        pionbois2.setBounds(x + 20, y + 40, 40, 40);
+        this.pionbois3 = new PionBois();
+        pionbois3.setVisible(true);
+        pionbois3.setBounds(x + 20, y + 60, 40, 40);
+        
+        InterfacePlateau.getFrame().add(pionbois1);
+        InterfacePlateau.getFrame().add(pionbois2);
+        InterfacePlateau.getFrame().add(pionbois3);
     }
 
     @Override
@@ -34,7 +48,9 @@ public class Bouton3Bois extends BoutonAction implements ActionListener {
             this.action.action(Agricola.getJoueurCourant());
             this.ajoutBouton();
             this.passeLaMain();
-            ajoutBois();
+            this.pionbois1.setVisible(false);
+            this.pionbois2.setVisible(false);
+            this.pionbois3.setVisible(false);
         }
     }
 }

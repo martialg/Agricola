@@ -10,12 +10,22 @@ import plateau.action.Action1Argile;
 public class Bouton1Argile extends BoutonAction implements ActionListener {
 
     private Action1Argile action;
+    private PionArgile pionargile;
 
     public Bouton1Argile(String nom, Action1Argile action) {
         super();
         this.setName(nom);
         this.action = action;
         addActionListener(this);
+    }
+    
+     public void ajoutArgile() {
+        this.pionargile = new PionArgile();
+        pionargile.setVisible(true);
+        int x = this.getX();
+        int y = this.getY();
+        pionargile.setBounds(x + 130, y + 40, 40, 40);
+        InterfacePlateau.getFrame().add(pionargile);
     }
 
     @Override
@@ -25,6 +35,7 @@ public class Bouton1Argile extends BoutonAction implements ActionListener {
             this.action.action(Agricola.getJoueurCourant());
             this.ajoutBouton();
             this.passeLaMain();
+            this.pionargile.setVisible(false);
         }
     }
 }

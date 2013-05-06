@@ -10,12 +10,22 @@ import plateau.action.Action1Roseau;
 public class Bouton1Roseau extends BoutonAction implements ActionListener {
 
     private Action1Roseau action;
+    private PionRoseau pionroseau;
 
     public Bouton1Roseau(String nom, Action1Roseau action) {
         super();
         this.setName(nom);
         this.action = action;
         addActionListener(this);
+    }
+    
+     public void ajoutRoseau() {
+        this.pionroseau = new PionRoseau();
+        pionroseau.setVisible(true);
+        int x = this.getX();
+        int y = this.getY();
+        pionroseau.setBounds(x + 20, y + 40, 40, 40);
+        InterfacePlateau.getFrame().add(pionroseau);
     }
 
     @Override
@@ -25,6 +35,7 @@ public class Bouton1Roseau extends BoutonAction implements ActionListener {
             this.action.action(Agricola.getJoueurCourant());
             this.ajoutBouton();
             this.passeLaMain();
+            this.pionroseau.setVisible(false);
         }
     }
 }
