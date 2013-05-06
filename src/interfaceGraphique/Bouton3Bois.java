@@ -17,6 +17,15 @@ public class Bouton3Bois extends BoutonAction implements ActionListener {
         this.action = action;
         addActionListener(this);
     }
+    
+    public void ajoutBois() {
+        PionBois pionbois = new PionBois();
+        pionbois.setVisible(true);
+        int x = this.getX();
+        int y = this.getY();
+        pionbois.setBounds(x + 20, y + 20, 40, 40);
+        InterfacePlateau.getFrame().add(pionbois);
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -25,6 +34,7 @@ public class Bouton3Bois extends BoutonAction implements ActionListener {
             this.action.action(Agricola.getJoueurCourant());
             this.ajoutBouton();
             this.passeLaMain();
+            ajoutBois();
         }
     }
 }

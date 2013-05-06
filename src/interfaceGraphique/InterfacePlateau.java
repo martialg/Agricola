@@ -195,9 +195,7 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         carte_tournee_14.setVisible(true);
         carte_tournee_14.setBounds(1652, 280, 148, 230);
 
-        //BoutonBois bb = new BoutonBois();
-        //bb.setVisible(true);
-        //bb.setBounds(500, 315, 40, 40);
+        //PionBois pb = new PionBois().ajoutBois();
 
         //Label choix des joueurs
         Image im_lab;
@@ -392,6 +390,8 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         boutonPeriode6Tour14.setBounds(1645, 275, 160, 240);
         boutonPeriode6Tour14.setVisible(true);
 
+        //pion
+        //bouton3Bois.ajoutBois();
 
         //fenetre principale
         plateau = new InterfacePlateau();
@@ -445,8 +445,10 @@ public class InterfacePlateau extends JPanel implements ActionListener {
         plateau.add(boutonPeriode5Tour13);
         plateau.add(boutonPeriode6Tour14);
 
-        //plateau.add(bb);
+       
 
+        
+        
         Agricola.debutDeTour();
         afficheBoutonJoueurPresent();
 

@@ -13,7 +13,29 @@ public class Joueur {
     private PlateauJoueur plateau;
     private Ressource ressources;
     private CarteJoueur cartes;
+    private int nb_action_faite;
+    
+    public boolean peutPlacerHabitants() {
+        int compteur = 0;
 
+        ArrayList<Case> liste_cases = this.getPlateauJoueur().getListeCase();
+        for (Case c : liste_cases) {
+            if (c instanceof CaseHabitation) {
+                CaseHabitation case_temp = (CaseHabitation) c;
+                if (case_temp.getOccupe()) {
+                    compteur++;
+                }
+            }
+        }
+        compteur += this.getPlateauJoueur().getAdulteSansCaseLibre();
+        if(this.nb_action_faite < compteur){
+            this.nb_action_faite++;
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
     public Couleur getCouleur() {
         return this.couleur;
     }
@@ -42,6 +64,7 @@ public class Joueur {
         this.plateau = new PlateauJoueur();
         this.ressources = new Ressource();
         this.cartes = new CarteJoueur();
+        this.nb_action_faite = 0;
     }
 
     public Ressource getRessources() {
@@ -74,6 +97,9 @@ public class Joueur {
         return libre;
     }
 
+    
+    
+    
     public int compterHabitants() {
         int compteur = 0;
 
